@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        var MYAPP = MYAPP || {};
+
+        MYAPP.namespace = function (ns_string) {
+            var parts = ns_string.split('.'),
+            parent = MYAPP,
+            i;
+            // strip redundant leading global
+            if (parts[0] === "MYAPP") {
+                parts = parts.slice(1);
+            }
+            for (i = 0; i < parts.length; i += 1) {
+                // create a property if it doesn't exist
+                if (typeof parent[parts[i]] === "undefined") {
+                    parent[parts[i]] = {};
+                }
+
+                parent = parent[parts[i]];
+            }
+            return parent;
+        };
+
+
+
+
+       
+
+
+        //herhangi bir stringi diziye çevirir
+        //BİR ÖNCEKİNDEN FARKI BİR OBJECT DEĞİL BİR FONKSİYON DÖNDÜRÜYOR
+
+
+        MYAPP.namespace('MYAPP.utilities.Array');
+        MYAPP.utilities.Array = (function () {
+            // dependencies
+            var uobj = MYAPP.utilities.object,
+            ulang = MYAPP.utilities.lang,
+                // private properties and methods...
+
+
+            Constr;
+           
+            Constr = function (o) {
+                this.elements = this.toArray(o);
+            };
+            // public API -- prototype
+            Constr.prototype = {
+                constructor: MYAPP.utilities.Array,
+                version: "2.0",
+                toArray: function (obj) {
+
+
+
+                    var len = obj.length;
+
+
+                    for (var i = 0, a = []; i < len; i += 1) {
+                        a[i] = obj[i];
+                    }
+                    return a;
+                }
+            };
+            // return the constructor
+            // to be assigned to the new namespace
+            return Constr;
+        }());
+        //The way to use this new constructor will be like so:
+
+
+        c = "alper";
+
+
+
+        var arr = new MYAPP.utilities.Array(c);
+        console.log(arr.elements);
+    </script>
+</head>
+<body>
+    <img src="images/04.png" />
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        //NUMBER NORMAL OLARAK KULLANILDIĞINDA (NEW SİZ) HER DEĞERİ SAYISALA ÇEVİRMEK İSTER
+        //AYNEN  parseInt() or parseFloat() GİBİ
+
+
+        var n = Number('12.12');
+        console.log(n);
+        //12.12
+
+        console.log(typeof n);
+        //"number"
+
+        var n = new Number('12.12');
+        console.log(typeof n);
+        //"object"
+        console.log(n.valueOf());
+        //12.12
+
+
+
+        //BURADA NUMBER İLE GELEN HAZIR METOTLAR İNCELENİYOR
+        console.log(Number.MAX_VALUE);
+        // 1.7976931348623157e+308
+        console.log(Number.MIN_VALUE);
+        //5e-324
+        console.log(Number.POSITIVE_INFINITY);
+        //Infinity
+        console.log(Number.NEGATIVE_INFINITY);
+        // -Infinity
+        console.log(Number.NaN);
+        //NaN
+
+
+
+
+        //AYRICA SAYILARI DEĞİŞİK FİKSLEMELER İÇİN HAZIR METOTLARA DA SAHİP
+
+
+        var n = Number('123.456');
+        console.log(n.toFixed(1)); //123.5
+        console.log(n.toExponential());  //1.23456e+2
+
+        var n = new Number(123.456)
+        console.log(n.toFixed(1));
+        //"123.5"
+
+        console.log((12345).toExponential());
+        //"1.2345e+4"
+
+        var n = new Number(255);
+        console.log(n.toString());
+        //"255"
+        console.log(n.toString(10));
+        //"255"
+        console.log(n.toString(16));
+        //"ff"
+        console.log((3).toString(2));
+        //"11"
+        console.log((3).toString(10));
+        //"3"
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ALPER ÖZIŞIK HTMl5 jquery</title>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2-vsdoc.js" ></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script >
+
+        $(document).ready(function () {
+
+            //getter
+            var divMetni = $("div.metin-ex").text();
+            console.log(divMetni);
+
+
+            //  setter
+
+            $("div.metin-ex").text("Yeni Metinler").hide(3000);
+
+        });
+    </script>
+
+    <style>
+        .stil {
+            background-color:#0094ff;
+            color:#00ff90
+        }
+        
+    </style>
+</head>
+
+<body >
+ 
+   <div class="metin-ex">Bilişim alanında yaşanan baş döndürücü gelişme, üçüncü sanayi devrimi olarak adlandırılıyor. İnsanlık tarihinin hiçbir döneminde insanlar, 
+       kendilerininde içinde bulunduğu, böyle hızlı bir değişime şahit olmadılar. </div>
+
+     <div   class="metin-ex" >Her şey bir gecede olmadı. Internet 1960 lardan beri vardı. Ama esas devrimini HTTP ve HTML in bir standart olarak kabul görmesi ile yaptı. Artık ağ ortamında bulunan bir kullanıcı, yaptığı herhangi bir çalışmayı HTML olarak hazırlarsa, 
+        çalışmasının dünyanın herhangi bir "ağ" ındaki, herhangi bir bilgisayarda görünebileceği heyecanına ulaştı.</div>
+
+    
+  
+  
+</body>
+</html>

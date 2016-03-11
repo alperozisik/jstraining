@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        function mix() {
+            var arg, prop, child = {};
+
+            for (arg = 0; arg < arguments.length; arg += 1) {
+
+                for (prop in arguments[arg]) {
+                    if (arguments[arg].hasOwnProperty(prop)) {
+                        //BURADA BİR CHILD NESNEleri BİR DİZİ DE TOPLUYOR TOPLUYOR VE RETURN EDİYOR
+                        child[prop] = arguments[arg][prop];
+                        //console.log(arguments);
+                        //console.log(prop);
+                    }
+                }
+            }
+            return child;
+        }
+
+
+
+
+
+        var cake = mix(
+        { eggs: 2, large: true },
+        { butter: 1, salted: true },
+        { flour: "3 cups" },
+        { sugar: "sure!" }
+            );
+
+
+        //bütün nesneleri bir nesne gibi yapmış
+
+
+        console.dir(cake);
+    </script>
+</head>
+<body>
+    <img src="02.png" />
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        //function outer(param) {
+
+        //    function inner(theinput) {
+        //        return theinput * 2;
+        //    }
+        //    return 'Sonuç:  ' + inner(param);
+        //}
+
+
+
+        var outer = function (param) {
+            var inner = function (theinput) {
+                return theinput * 2;
+            };
+            return 'Sonuç: ' + inner(param);
+        };
+
+
+
+        console.log(outer(2));
+        // "The result is 4"
+        console.log(outer(8));
+        //  "The result is 16"
+        console.log(inner(2));
+        //   ReferenceError: inner is not defined
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

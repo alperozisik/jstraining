@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        // isPrototypeOf() BELİRTİLEN NESNENİN HANGİ NESNENİN PROTOTYPE I OLDUĞUNU SÖYLER
+
+
+        var monkey = {
+            hair: true,
+            feeds: 'bananas',
+            breathes: 'air'
+        };
+
+
+
+        function Human(name) {
+            this.name = name;
+        }
+
+        Human.prototype = monkey;
+
+        var alper = new Human('Alper');
+        console.log(monkey.isPrototypeOf(alper));
+        // true
+
+
+        //BURADA monkey HUMAN FONKSİYONUNUN BİR PROTOTYPE DİR
+
+
+
+        //BİR NESNENİN PROTOTYP'İNİN ADINI BİLMİYORSAK VE PROTOTYPE IN ÖZELLİKLERİNE ERİŞMEK İSTİYORSAK
+
+        console.log(Object.getPrototypeOf(alper).feeds);
+        //"bananas"
+
+        console.log(Object.getPrototypeOf(alper) === monkey);
+        //true
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        var a = 2;
+        function f() {
+            var b = 1;
+            return a;
+        }
+        console.log(f()); // 2
+
+
+
+        var global = 1;
+        function outer() {
+            var outer_local = 2;
+            function inner() {
+                var inner_local = 3;
+
+                return inner_local + outer_local + global;
+
+            }
+            return inner();
+        }
+
+
+        console.log(outer());
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

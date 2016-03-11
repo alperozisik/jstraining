@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        // PROTOTYPE LAR BUİLT İN NESNELERİ GELİŞTİRMEK VE ZENGİNLEŞTİRMEK İÇİN DE KULLANILIR
+        //AŞAĞIDA BİR DİZİ DE VERİLEN ELEMANIN OLUP OLMADIĞINI KONTROL EDEN PROTOTYPE GELİŞTİRİLİYOR
+
+        Array.prototype.dizininIcindeMi = function (needle) {
+            for (var i = 0, len = this.length; i < len; i++) {
+                if (this[i] === needle) {
+
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        var a = ['red', 'green', 'blue'];
+        console.log(a.dizininIcindeMi('red'));
+        //true
+
+        console.log(a.dizininIcindeMi('yellow'));
+        //false
+
+        //2************************************************************************************
+
+
+
+        //  BURADA GİRİLEN METNİ TERSİNE ÇEVİREN BİR PROTOTYPE terstenOku
+        //String prototype  Array.prototype.reverse() ÖDÜNÇ ALINMIŞ
+
+        String.prototype.terstenOku = function () {
+            return Array.prototype.reverse.apply(this.split('')).join('');
+
+        }
+
+
+
+        console.log("alper".terstenOku());
+        //"repla"
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

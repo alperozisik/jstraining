@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+
+        // an input JSON string
+        var jstr = '{"mykey": "my value"}';
+
+
+
+        // preferred
+        var data = JSON.parse(jstr);
+        console.dir(data.mykey); // "my value"
+
+
+
+        var dog = {
+            name: "Fi\"do",
+            dob: new Date(),
+            legs: [1, 2, 3, 4]
+        };
+        var jsonstr = JSON.stringify(dog);
+
+        console.log(jsonstr);
+        // jsonstr is now:
+        // {"name":"Fido","dob":"2010-04-11T22:36:22.436Z","legs":[1,2,3,4]}
+
+
+        var data2 = JSON.parse(jsonstr);
+
+        console.log(data2);
+        console.log(dog == data2);
+
+        dog.bark = function () { };
+
+        console.log(JSON.stringify(dog) === JSON.stringify(data2));
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

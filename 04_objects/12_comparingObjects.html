@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        // REFERANSLAR AYNI NESNEYE DAYANIRSA BİR BİRİNE EŞİT OLURLAR, FARKLI NESNEYE DAYALI
+        //REFERANSLAR DEĞERLER AYNI OLSA BİLE FARKLIDIRLAR
+        //AŞAĞIDA FİDO VE BENJİ İÇİN İKİ AYRI NESNE TANIMLANMIŞ BUNLARIN DEĞERLERİ AYNI OLSA BİLE BUNLAR
+        //AYRI İKİ NESNEDİR
+
+        var fido = { breed: 'dog' };
+        var benji = { breed: 'dog' };
+
+
+
+
+        console.log(benji == fido);
+        // false
+        console.log(benji === fido);
+        //false
+
+
+
+
+        var mydog = benji;
+        var kopek = benji;
+
+        console.log(mydog === benji);
+        //  true
+        console.log(kopek === benji);
+        // true
+
+        console.log(mydog === fido);
+        // false
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

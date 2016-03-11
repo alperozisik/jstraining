@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+
+        //BAŞKA TÜRDEN INHERITANCE OLUŞTURMA
+        var parent = {
+            name: "Papa"
+        };
+        // the new object
+        var child = object(parent);
+        // testing
+        alert(child.name); // "Papa"
+
+        function object(o) {
+            function F() { }
+            F.prototype = o;
+            return new F();
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <img src="01.png" />
+</body>
+</html>

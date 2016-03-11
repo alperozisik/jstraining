@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        //ÇOCUK NESNELERİN (ÖRNEKLERİN) PARENTLERİNE NASIL ERİŞİRİZ ?
+
+        /*     KİLİT NOKTA ÇOCUK NESNE OLUŞTURULURKEN ANA NESNENİN PROTOTYPE INI ÇOCUK NESNEDE 
+        BİR PROPERTIES OLUŞTURARAK BU
+             BU PROTOTYPE I BU ÇOCUK NESNEYE ATAMAK TwoDShape.uber = Shape.prototype;
+             BÖYLECE ÇOCUK NESNEDE UBER (HERHANGİ BİR İSİMDE VERİLEBİLİR AMA BU PATTERNİ 
+             OLUŞTURAN UBER İSMİ VERMİŞ)
+             İSMİNDE ANA NESNEDEN GELEN DEĞERLERİ DE ALAN BİR PROPERTY OLUŞUR
+             ÇOCUK NESNE KENDİNE AİT PROTPERYİ KORURKEN (Kİ BİZİM ÖRNEĞİMİZDE BU NAME) 
+             ANA NESNEDEN GELEN PROTOTYPE DEĞERLERİNE (ÖZELLİKLERİNE)
+              YENİ OLUŞTURULAN UBER ÖZELLİĞİ SAYESİNDE ERİRİŞİR
+             BU ZİNCİR BÖYLE DEVAM EDER */
+
+
+        function Shape() { }
+        // prototype i zenginleştirelim
+        Shape.prototype.name = 'shape';
+        Shape.prototype.metinGetir = function () {
+            var result = [];
+            if (this.constructor.uber) {
+
+
+                //BURADA BU FONKSİYONA GELEN DEĞERİN BİR UBER PROPERTY DEN GELİP GELMEDİĞİ DENETLENİYOR - UBER BUİLTİN BİR PROPERTY DEĞİL
+                //BİZİM UBER İSMİYLE YARATTIĞIMIZ BİR PROPERTY FARKLI BİR İSİM DE OLABİLİR
+                //DİĞER BİR İFADEYLE MİRAS OLUŞTURULURKEN Mİ KULLANILIYOR ONA BAKIYOR
+                // ÖYLEYSE BU FONKSİYONUN (this) UBER PROPERTY Sİ RESULT DİZİNİNE  metinGetir() fonksiyonu çalıştırılarak
+                //Atanıyor
+                result[result.length] = this.constructor.uber.metinGetir();
+
+                //  console.log(result);
+            }
+
+            result[result.length] = this.name;
+
+            return result.join(', ');
+        };
+
+        console.log(Shape.prototype.metinGetir());
+
+
+        function TwoDShape() { }
+        // ornek oluştur
+        var F = function () { };
+        F.prototype = Shape.prototype;
+        TwoDShape.prototype = new F();
+        TwoDShape.prototype.constructor = TwoDShape;
+        TwoDShape.uber = Shape.prototype;
+        // prototype i zenginleştirelim
+        TwoDShape.prototype.name = '2D shape';
+
+        console.log(TwoDShape.prototype.metinGetir());
+
+        function Triangle(side, height) {
+            this.side = side;
+            this.height = height;
+        }
+        // ornek oluştur
+        var F = function () { };
+        F.prototype = TwoDShape.prototype;
+        Triangle.prototype = new F();
+        Triangle.prototype.constructor = Triangle;
+        Triangle.uber = TwoDShape.prototype;
+        // prototype i zenginleştirelim
+        Triangle.prototype.name = 'Triangle';
+        Triangle.prototype.getArea = function () {
+            return this.side * this.height
+            / 2;
+        }
+
+
+        console.log(Triangle.prototype.metinGetir());
+
+
+
+
+
+
+        var my = new Triangle(5, 10);
+           console.log(my.metinGetir());
+        //"shape, 2D shape, Triangle"
+
+        //The name of the property uber could've been "superclass" but this would suggest
+        //that JavaScript has classes. Ideally it could've been "super" (as in Java), but "super"
+        //is a reserved word in JavaScript. The German word "über" suggested by Douglass
+        //Crockford, means more or less the same as "super" and, you have to admit, it
+        //sounds uber-cool.
+
+    </script>
+</head>
+<body>
+    <img src="images/04.png" />
+    <img src="images/05.png" />
+    <img src="images/06.png" />
+    <img src="images/07.png" />
+</body>
+</html>

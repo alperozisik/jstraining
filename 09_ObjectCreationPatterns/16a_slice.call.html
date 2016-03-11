@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+        function list() {
+            return Array.prototype.slice.call(arguments, 0); //Gönderilen değerleri diziye çeviriyor
+        }
+
+        var args = list(4, 2, 3); // [4, 2, 3]
+        console.log(args);
+
+        //   console.log((args[0] && typeof args[0] === "string") ? args : args[0]);
+        console.log((true && false) ? args : args[1]);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

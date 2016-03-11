@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+        /*        When you create objects using a constructor function, own properties are added
+        using this. This could be inefficient in cases where properties don't change across
+        instances. In the example above, Shape()was defined like so: */
+        /*
+        BİR NESNE OLUŞTURDUĞUMUZDA KENDİ ÖZELLİKLERİNİ EKLEMEK İÇİN this KULLANIYORUZ.
+        BU ÖZELLİKLER YENİ instance lerde değişmiyor
+
+        */
+
+        function Shape() {
+            this.name = 'shape';
+        }
+
+
+
+
+        /* bunun anlamı her yeni nesneyi oluştururken eğer new Shape() ifadesi kullanırsak yeni 
+        bir name propertisi
+        oluşturulacak ve hafızada bir yerde saklanacak. DİĞER bir 
+        seçenekte prototype name isminde bir özellik ekleyerek
+        bunu bütün instance (örnekler) ler için kullanmaktır (referans göstermektir)
+
+        */
+
+
+
+
+        function Shape() { }
+
+        Shape.prototype.name = 'shape';
+
+        //BURADA NESNE KENDİ PROPERTIES İNE SAHİP DEĞİL, PROTOTYPE NE BİR ÖZELLİK EKLEMİŞ
+        //BÖYLESİ DAHA EFEKTİF (referans tip)
+        // BİR INSTANCE DEN DİĞERİNİ OLUŞTURURKEN DIŞARDAN DEĞER VERİLMEYECEKSE YANİ
+        // DEĞERİ SABİT OLARAK AKTARILACAK İSE (AŞAĞIDAKİ ÖRNEKTE OLDUĞU GİBİ, NAME ÖZELLİĞİ HER 
+        //İNSTANCE DE SABİT OLARAK
+        // ATANMIŞ (İSİMLER DEĞİŞMİŞ AMA SABİT OLARAK ATANMIŞ) AKTARMAK İSTEDİĞİMİZDE KULLANILABİLİR
+        //(ASLINDA BUNA DEĞERLER EĞER NESNE OLUŞTURULURKEN PARAMETRİK OLARAK VERİLMEYECEKSE DE DENİLEBİLİR)
+        // METOTLAR BU TİP PAYLAŞIM İÇİN UYGUN
+
+
+
+
+        // constructor
+        function Shape() { }
+
+        //  prototype i zenginleştirelim
+        Shape.prototype.name = 'shape';
+        Shape.prototype.toString = function () { return this.name; };
+
+        function TwoDShape() { }
+        TwoDShape.prototype = new Shape();
+        TwoDShape.prototype.constructor = TwoDShape;
+
+        //  prototype i zenginleştirelim
+        TwoDShape.prototype.name = '2D shape';
+
+
+
+
+        //HER BİR ÜÇGEN YENİDEN KENDİNE AİT DEĞERLERLE OLUŞTURULACAĞI İÇİN BU ÖZELLİKLER 
+        //THIS İLE KENDİ PROPERTIES İNİ
+        // OLUŞTURMAK DAHA İYİ BİR FİKİR
+
+        function Triangle(side, height) {
+            this.side = side;
+            this.height = height;
+        }
+        // take care of inheritance
+        Triangle.prototype = new TwoDShape();
+        Triangle.prototype.constructor = Triangle;
+        // augment prototype
+        Triangle.prototype.name = 'Triangle';
+        Triangle.prototype.getArea = function () {
+            return this.side * this.height
+            / 2;
+        };
+
+
+        var my = new Triangle(5, 10);
+        console.log(my.getArea());
+        // 25
+
+        console.log(my.toString());
+        //  "Triangle"
+
+
+        /* BURADA BİR ÖNCEKİ UYGULAMADA OLDUĞU 
+        SORGULAMALAR YAPABİLİRİZ */
+
+        console.log(my.hasOwnProperty('side'));
+        //true
+        console.log(my.hasOwnProperty('name'));
+        //false
+
+
+        console.log(TwoDShape.prototype.isPrototypeOf(my));
+        //true
+        console.log(my instanceof Shape);
+        // true
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

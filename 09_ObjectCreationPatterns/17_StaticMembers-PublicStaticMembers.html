@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+        // constructor
+        var Gadget = function () { };
+
+
+
+        // a static method
+        Gadget.isShiny = function () {
+            return "you bet2";
+        };
+
+
+
+        // a normal method added to the prototype
+        Gadget.prototype.setPrice = function (price) {
+
+            this.price = price;
+        };
+
+
+
+
+        // calling a static method
+        console.log(Gadget.isShiny());  // "you bet"
+
+
+        // creating an instance and calling a method
+        var iphone = new Gadget();
+        console.dir(iphone.setPrice(10));
+
+        //Attempting to call an instance method statically won’t work; same for calling a static
+        //method using the instance iphone object:
+
+        console.log(typeof Gadget.setPrice);  // "undefined"
+        console.log(typeof iphone.isShiny);  // "undefined"
+
+        //BAZEN STATIC METOTLARIN INSTANCE LARDA DA ÇALIŞMASINI İSTEYEBİLİRİZ
+
+        Gadget.prototype.isShiny = Gadget.isShiny;
+        console.log(iphone.isShiny());  // "you bet"
+
+     
+
+        // constructor
+        var Gadget = function (price) {
+            this.price = price;
+        };
+
+        // a static method
+        Gadget.isShiny = function () {
+            // this always works
+
+            var msg = "you bet";
+            if (this instanceof Gadget) {
+                //BURASI YENİ BİR INSTANCE OLUŞTURUNCA ÇALIŞIR
+               
+                msg += ", it costs $" + this.price + '!';
+            }
+            return msg;
+        };
+
+       
+        //BURADA STATIK METOTLA AYNI İSİMDE BİR PROTOTYPE OLUŞTURULUYOR
+        //NEW İLE YENİ NESNE OLUŞTURULDUĞUNDA BURASI ÇALIŞTIRILACAK
+        Gadget.prototype.isShiny = function () {
+            return Gadget.isShiny.call(this);
+        };
+
+        //  Testing a static method call:
+        console.log(Gadget.isShiny());  // "you bet"
+
+        //Testing an instance, nonstatic call:
+        var a = new Gadget('499.99');
+        console.log(a.isShiny());  // "you bet, it costs $499.99!"
+    </script>
+</head>
+<body>
+    <img src="images/06.png" />
+    <img src="images/07.png" />
+</body>
+</html>

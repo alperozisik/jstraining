@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        /*  BİR ÖNCEKİ EN SON MİRAS ALANA ATANAN ÖZELLİK DEĞERİNİN BÜTÜN PARENTLER İÇİN DE GEÇERLİ OLMASI
+          HANDİKABINI ARACI BİR FONKSİYON OLUŞTURARAK VE ONUN PROTOTYPE NA PARENT DEĞERLERİNİ ATADIKTAN SONRA
+          ARACI FONKSİYONUN PROTOTYPE DEĞERLERİNİ MİRASI ALAN NESNEYE AKTARARAK BU İŞ ÇÖZÜLEBİLİR
+          BÖYLECE PARENT İN PROTOTYPE I REFERANS GÖSTERİLMEMİŞ OLUR (ARACI NEW İLE OLUŞTURULDUĞUNDAN 
+          KENDİNE AİT PROTOTYPE I OLUR)
+
+           */
+
+
+        function Shape() { }
+        //  prototype i zenginleştirelim
+        Shape.prototype.name = 'shape';
+        Shape.prototype.toString = function () { return this.name; };
+
+        function TwoDShape() { }
+        // ornek oluştur
+        var F = function () { };
+        F.prototype = Shape.prototype;
+        TwoDShape.prototype = new F();
+        TwoDShape.prototype.constructor = TwoDShape;
+        // prototype i zenginleştirelim
+        TwoDShape.prototype.name = '2D shape';
+
+
+
+
+        function Triangle(side, height) {
+            this.side = side;
+            this.height = height;
+        }
+        //  ornek oluştur
+        //var F = function () { };
+        F.prototype = TwoDShape.prototype;
+        Triangle.prototype = new F();
+        Triangle.prototype.constructor = Triangle;
+        // prototype i zenginleştirelim
+        Triangle.prototype.name = 'Triangle';
+        Triangle.prototype.getArea = function () {
+            return this.side * this.height
+            / 2;
+        };
+
+
+
+        var my = new Triangle(5, 10);
+        console.log(my.getArea());
+        //25
+        console.log(my.toString());
+        //"Triangle"
+
+
+
+
+        console.log(my.__proto__ === Triangle.prototype);
+        // true
+        console.log(my.__proto__.constructor === Triangle);
+        //true
+        console.log(my.__proto__.__proto__ === TwoDShape.prototype);
+        //true
+        console.log(my.__proto__.__proto__.__proto__.constructor === Shape);
+        //true
+
+
+
+        //AYRICA PARENT NESNENİN DEĞERİ DEĞİŞMEYECEK:
+        var s = new Shape();
+        console.log(s.name);
+        // "Shape"
+        console.log("I am a " + new TwoDShape());
+        //"I am a 2D shape"
+
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

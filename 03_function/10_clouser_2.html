@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        function F(param) {
+
+            var N = function () {
+                return param;
+            };
+
+            param++;
+            return N;
+        }
+
+        var inner = F(123);
+
+
+
+
+        var inner2 = F(0);
+
+        console.log(inner()); //124
+        console.log(inner2()); //1
+        console.log(inner()); //125
+        console.log(inner2()); //2
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

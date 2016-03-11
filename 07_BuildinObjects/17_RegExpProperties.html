@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+        /*
+
+       modifiers
+       •  g for global
+       •  i for ignoreCase
+       •  m for multiline
+
+aşağıdakilerin hepsi true */
+
+
+
+        var re = new RegExp('j.*t', 'gmi');
+
+        console.log(re.global);
+        //GLOBAL DEĞERİN SET EDİLİP EDİLMEDİĞİ KONTROL EDİLİYOR
+        // true
+
+
+        //MODIFIER LER BİR KERE SET EDİLDİĞİN DE DEĞİŞTİRİLEMEZ
+        re.global = false;
+        console.log(re.global);
+        //true
+
+
+
+        var re = /j.*t/ig;
+        console.log(re.global);
+        //true
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

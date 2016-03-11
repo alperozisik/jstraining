@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        /*      configurable
+              true if and only if the type of this property descriptor may be changed and if the property may be deleted from the corresponding object.
+              Defaults to false.
+          enumerable
+              true if and only if this property shows up during enumeration of the properties on the corresponding object.
+              Defaults to false.
+
+          A data descriptor also has the following optional keys:
+
+                  value
+              The value associated with the property. Can be any valid JavaScript value (number, object, function, etc).
+                  Defaults to undefined.
+              writable
+                  true if and only if the value associated with the property may be changed with an assignment operator.
+                  Defaults to false.
+
+              An accessor descriptor also has the following optional keys:
+
+                      get
+                  A function which serves as a getter for the property, or undefined if there is no getter. The function return will be used as the value of property.
+                  Defaults to undefined.
+              set
+                  A function which serves as a setter for the property, or undefined if there is no setter. The function will receive as only argument the new value being assigned to the property.
+                  Defaults to undefined.
+
+                  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var o = {}; // Creates a new object
+
+        // Example of an object property added with defineProperty with a data property descriptor
+        Object.defineProperty(o, "a", {
+            value: 37,
+            writable: true,
+            enumerable: true,
+            configurable: true
+        });
+        // 'a' property exists in the o object and its value is 37
+
+        // Example of an object property added with defineProperty with an accessor property descriptor
+        var bValue = 38;
+        Object.defineProperty(o, "b", {
+            get: function () { return bValue; },
+            set: function (newValue) { bValue = newValue; },
+            enumerable: false,
+            configurable: false
+        });
+
+
+        console.log(o.b);; // 38
+
+        o.b = 40;
+        console.log(o.b);
+
+
+        // 'b' property exists in the o object and its value is 38
+        // The value of o.b is now always identical to bValue, unless o.b is redefined
+
+        // You cannot try to mix both :
+        //Object.defineProperty(o, "conflict", {
+        //    value: 0x9f91102,
+        //    get: function () { return 0xdeadbeef; }
+        //});
+        // throws a TypeError: value appears only in data descriptors, get appears only in accessor descriptors
+
+
+
+        //value değeri varken writable atanabilir
+        var o = {}; // Creates a new object
+
+        Object.defineProperty(o, "a", {
+            value: 37,
+            writable: false
+        });
+
+        console.log(o.a); // logs 37
+        o.a = 25; // No error thrown (it would throw in strict mode, even if the value had been the same)
+        console.log(o.a); // logs 37. The assignment didn't work.
+
+
+        //2 **************************************************************************
+        var kedi = {};
+
+        Object.defineProperty(kedi, "ad", {
+            value: "Maru",
+            writable: false,
+            enumerable: false,
+            configurable: false
+        });
+
+        Object.defineProperty(kedi, "beceri", {
+            value: "kutuları keşfetme",
+            writable: true,
+            enumerable: true,
+            configurable: true
+        });
+
+        console.log(kedi.beceri);
+
+        kedi.beceri = "atlama";
+        console.log(kedi.beceri);
+
+
+        for (var i in kedi) {
+            console.log(i);
+
+        }
+
+
+
+        /* kedi nesnemiz için, onun adı değiştirilemez ama for-in döngüsünde değeri görüntülenebilir.
+             Diğerleri arasında, Maru kutuları keşfetmede iyi, ama bu gelecekte değişebilir çünkü beceri
+         özelliği writable(yazılabilir) ve configurable(ayarlanabilir) olarak kaldı.*/
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>

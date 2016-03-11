@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        var MYAPP = MYAPP || {};
+
+        MYAPP.namespace = function (ns_string) {
+            var parts = ns_string.split('.'),
+            parent = MYAPP,
+            i;
+            // strip redundant leading global
+            if (parts[0] === "MYAPP") {
+                parts = parts.slice(1);
+            }
+            for (i = 0; i < parts.length; i += 1) {
+                // create a property if it doesn't exist
+                if (typeof parent[parts[i]] === "undefined") {
+                    parent[parts[i]] = {};
+                }
+
+                parent = parent[parts[i]];
+            }
+            return parent;
+        };
+
+
+
+
+
+
+
+
+
+        MYAPP.namespace('utilities.array');
+        MYAPP.utilities.array = (function () {
+            // private properties
+            var array_string = "[object Array]",
+            ops = Object.prototype.toString,
+            // private methods
+            inArray = function (haystack, needle) {
+                for (var i = 0, max = haystack.length; i < max; i += 1) {
+                    if (haystack[i] === needle) {
+                        return i;
+                    }
+                }
+                return -1;
+            },
+            isArray = function (a) {
+                return ops.call(a) === array_string;
+            };
+            // end var
+            // revealing public API
+            return {
+                isArray: isArray,
+                indexOf: inArray
+            };
+        }());
+
+
+        console.log(MYAPP.utilities.array.indexOf(["a", "b", "z"], "z"));
+        console.log(MYAPP.utilities.array.isArray(["a", "b", "z"]));
+
+
+    </script>
+</head>
+<body>
+    <img src="images/03.png" />
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+
+        //BİR NESNE YARATILDIĞI ZAMAN  "constructor" ADINDA ÖZEL BİR properties DE OLUŞTURULUR.
+        //BU constructor NESNEYİ OLUŞTURAN FONKSİYONU GETİRİR
+
+
+        function Hero(name) {
+            this.name = name;
+        }
+
+        var h2 = new Hero('Michelangelo');
+
+        console.dir(h2.constructor);
+
+
+
+        //BURASI ÖNEMLİ BURADA h2 NİN CONSTRUCTOR ÜNE DAYANARAK YANİ ONU OLUŞTURAN (NESNEYİ OLUŞTURAN) FONKSİYONA (CONSTRUCTOR)
+        //ULAŞILARAK YENİ BİR PARAMETREYLE YENİ BİR NESNE OLUŞTURULUYOR
+
+        var h3 = new h2.constructor('alper');
+
+        console.log(h3.name);
+        // "alper"
+
+
+
+
+        var o = {};
+        console.log(o.constructor);
+
+        //    function Object() { [native code] }
+
+        console.log(typeof o.constructor);
+        // "function"
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

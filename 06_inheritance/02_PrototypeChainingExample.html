@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+
+
+
+        /* Prototype chaining  inheritance oluşturmanın  ECMAScript standardlarında tanımlı yöntemidir  */
+
+        function Shape() {
+            this.name = 'shape';
+            this.metin = function () {
+                return this.name;
+            };
+
+        }
+
+        function TwoDShape() {
+            this.name = '2D shape';
+            this.tipi = 'çizgi';
+        }
+
+        function Triangle(side, height) {
+            this.name = 'Triangle';
+            this.side = side;
+            this.height = height;
+            this.getArea = function () { return this.side * this.height / 2; };
+        }
+
+
+
+        TwoDShape.prototype = new Shape();
+        Triangle.prototype = new TwoDShape();
+
+
+
+
+        //BİR ÖNCEKİ BÖLÜMÜN SON KONUSUYDU PROTOTYPE IN ANA NESNESİNE ULAŞMAK İÇİN CONSTRUCTOR E ATIYORUZ
+
+        console.dir(Triangle.prototype.constructor);
+
+        TwoDShape.prototype.constructor = TwoDShape;
+        console.dir(Triangle.prototype.constructor);
+        Triangle.prototype.constructor = Triangle;
+
+
+        console.dir(Triangle.prototype.constructor);
+
+
+
+        var my = new Triangle(5, 10);
+        console.log(my.getArea());
+        //25
+
+
+        console.log(my.metin());
+        //  "Triangle"
+
+        console.log(my.tipi);
+        //çizgi
+
+
+
+
+        console.log(my.constructor === Triangle);
+        // true
+
+
+        //constructor un kim diye sorulduğunda doğru cevap verecektir çünkü inheritden sonra resetlendi
+
+        console.log(my.constructor);
+        //Triangle(side, height)
+
+
+        //instanceof operator my miras aldığı 3 constructor u da doğrulayacaktır
+        console.log("check here");
+        console.log(my instanceof Shape);
+        //true
+        console.log(my instanceof TwoDShape);
+        //true
+        console.log(my instanceof Triangle);
+        //true
+        console.log(my instanceof Array);
+        //false
+ 
+
+        // isPropertyOf()method da aynı şekilde my nesnesinin miras aldığı constructor lerini doğrular
+
+        console.log(Shape.prototype.isPrototypeOf(my))
+        //true
+        console.log(TwoDShape.prototype.isPrototypeOf(my))
+        //true
+        console.log(Triangle.prototype.isPrototypeOf(my))
+        //true
+        console.log(String.prototype.isPrototypeOf(my))
+        //false
+
+        //       Aynı şekilde diğer nesneleri de tanımlayababiliriz
+
+        var td = new TwoDShape();
+        console.log(td.constructor);
+        //TwoDShape()
+        console.log(td.toString());
+        //"2D shape"
+        var s = new Shape();
+        console.log(s.constructor);
+        //Shape()
+
+
+
+        console.log(my.hasOwnProperty('side'));
+        //true
+        console.log(my.hasOwnProperty('tipi'));
+        //false
+
+        //BİR SONRAKİ UYGULAMA DA BU SORUN ÇÖZÜLECEK
+
+
+    </script>
+
+
+</head>
+<body>
+    <img src="images/02.png" />
+</body>
+</html>

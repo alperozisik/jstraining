@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+
+    <script>
+
+       
+
+        //PROTOTYPE PROPERTIES BAŞKA BİR NESNEYİ İŞARET EDEN BİR FONKSİYON PROPERTIES İDİR
+        //HER NESNE PROTOTYPE E AİT DEĞERLERİ KENDİ DEĞERİ (ÖZELLİĞİ ) GİBİ KULLANABİLİR
+
+
+        var ninja = {
+            name: 'Ninja',
+            say: function () {
+                return 'I am a ' + this.name;
+            }
+        };
+
+      
+        function F() { }
+
+        console.log(typeof F.prototype);
+        //"object"
+
+     
+
+        F.prototype = ninja;
+        console.log(F.prototype); // Object
+
+
+     
+
+        var baby_ninja = new F();
+        console.log(baby_ninja.name);
+        // "Ninja"
+
+        console.log(baby_ninja.say());
+        //  "I am a Ninja"
+
+      
+
+
+    </script>
+</head>
+<body>
+    <img src="images/01.png" />
+</body>
+</html>

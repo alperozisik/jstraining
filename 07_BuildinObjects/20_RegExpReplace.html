@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+        var s = new String('HelloJavaScriptWorld');
+
+        //replace() allows you to replace the matched text with some other string. The
+        //following example removes all capital letters (it replaces them with blank strings):
+        //g GELDİĞİNDE BÜTÜN CÜMLE İÇİN GEÇERLİ OLUĞUNA DİKKAT
+        console.log(s.replace(/[A-Z]/g, ''));
+        //"elloavacriptorld"
+
+
+        // If you omit the g modifier, you're only going to replace the first match:
+        console.log(s.replace(/[A-Z]/, ''));
+        // "elloJavaScriptWorld"
+
+
+        //When a match is found, if you want to include the matched text in the replacement
+        //string, you can access it using $&. Here's how to add an underscore before the match
+        //while keeping the match:
+        console.log(s.replace(/[A-Z]/g, "_$&"));
+        // "_Hello_Java_Script_World"
+
+
+        //        When the regular expression contains groups (denoted by parentheses), the matches
+        //of each group are available as $1 is the first group, $2 the second and so on.
+        console.log(s.replace(/([A-Z])/g, "_$1"));
+        //"_Hello_Java_Script_World"
+
+
+        /*  Imagine you have a registration form on your web page that asks for an e-mail
+  address, username, and password. The user enters their e-mail, and then your
+  JavaScript kicks in and suggests the username, taking it from the e-mail address:*/
+
+
+
+
+        var email = "alper@gmail.com";
+        var username = email.replace(/(.*)@.*/, "$1");
+        console.log(username);
+        // "alper"
+
+
+        //$1 veya $2 gibi ELDE EDEBİLMEK İÇİN PARANTEZLERLE GRUPLARA AYIRMAK LAZIM
+
+        var email = "alper@gmail.com";
+        var username = email.replace(/(.*)@(.*)/, "$2");
+        console.log(username);
+        // "gmail.com"
+
+
+        /* The following script switches the words in the string. For the replacement text,
+         the script uses the $1 and $2 replacement patterns.*/
+
+        // \s Matches any white-space character.
+
+        var re = /(\w+)\s(\w+)/;
+        var str = "Alper Özışık";
+        var newstr = str.replace(re, "$2, $1");
+        console.log(newstr);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

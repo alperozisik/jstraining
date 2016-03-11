@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        //1 * NORMAL BİR NESNE LOOPU *******************************************************************************
+
+
+
+
+        var params = {
+            productid: 666,
+            section: 'products'
+        };
+
+        var url = 'http://example.org/page.php?';
+        var i;
+        var query = [];
+
+
+        for (i in params) {
+
+            //i elementin ismi
+            //query dizisine push ediyor
+            // params[i] inci elementinin değeri
+            query.push(i + '=' + params[i]);
+            console.log(query);
+        }
+        url += query.join('&');
+
+        console.log(url);
+        //ÇIKTI AŞAĞIDAKİ GİBİ OLACAK:
+        //  "http://example.org/page.php?productid=666&section=products"
+
+
+
+
+        //1 * NORMAL BİR NESNE LOOPU *******************************************************************************
+
+
+        //2 PROTOTYPE EKLENDİĞİN DE *****************************************************************************
+
+
+        function Gadget(name, color) {
+            this.name = name;
+            this.color = color;
+            this.getName = function () {
+                return this.name;
+            };
+        }
+        Gadget.prototype.price = 100;
+        Gadget.prototype.rating = 3;
+
+        // YENİ BİR NESNE OLUŞTURALIM:
+
+        var newtoy = new Gadget('webcam', 'black');
+
+        //Now, if you loop usinga for-inloop, you see all of the object's properties, including
+        //those that come from the prototype:
+
+        for (var prop in newtoy) {
+            console.log(prop + ' = ' + newtoy[prop]);
+        }
+
+        /* ÇIKTISI:  name = webcam
+                     color = black
+
+                    getName = function () {
+                                     return this.name;
+                                 }
+                        price = 100
+                        rating = 3
+
+
+                     */
+
+
+        //BURADAKİ DÖNGÜDE PROTOTYPE DAKİ DEĞERLER DE GELMİŞ
+
+
+
+        //2 PROTOTYPE EKLENDİĞİN DE *****************************************************************************
+
+
+
+        //3 KENDİ PROPERTIES İNİ ALGILAMAK **********************************************************************
+        /* SADECE KENDİ PROPERTIESLERİNİ ALMAK İÇİN :*/
+        newtoy.hasOwnProperty('name');
+        // true
+        newtoy.hasOwnProperty('price');
+        // false
+
+        // BURADA KENDİ PROPERTIESLERİ ELDE EDİLİYOR
+
+        for (var prop in newtoy) {
+            if (newtoy.hasOwnProperty(prop)) {
+                console.log(prop + '=' + newtoy[prop]);
+            }
+        }
+
+        /*SONUÇ:
+            name=webcam
+        color=black
+        getName = function () {
+            return this.name;
+        }
+        */
+
+        //3 KENDİ PROPERTIES İNİ ALGILAMAK **********************************************************************
+
+        //propertyIsEnumerable() true ya da false değeri döndürür
+        //nesnenin kendi özellikleri built-in properties ler değildir dolayısıyla enumarable.
+        console.log(newtoy.propertyIsEnumerable('name'));
+        //true
+
+        // PEK ÇOK built-in properties ve methods  enumerable değildir.
+        console.log(newtoy.propertyIsEnumerable('constructor'));
+        //false
+
+        //  prototype chain dan gelen özellikler  enumerable değildir.
+        console.log(newtoy.propertyIsEnumerable('price'));
+        //false
+
+        // prototype in enumerable metoduna erişmek için constructor dan prototype ına erişilmeli
+
+
+        console.log(newtoy.constructor.prototype.propertyIsEnumerable('price'));
+        //true
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

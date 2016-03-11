@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        //BURADA BOOLEAN TİPİNDE BİR DEĞİŞKEN CONSTRUCTOR İLE OLUŞTURULUYOR. BU PRİMİTİVE TİP DEĞİLDİR
+        //VE DOĞRUDAN TİPİNE ULAŞILAMAZ. BU BİR NESNEDİR VE AŞAĞIDAKİ ŞEKİLDE TİPİNE ULAŞILABİLİR
+
+        var b = new Boolean();
+        console.log(typeof b);
+        //"object"
+
+        console.log(typeof b.valueOf());
+        //"boolean"
+
+        console.log(b.valueOf());
+        //false
+
+
+
+        // Boolean()constructor  İLE OLUŞTURMAK ÇOK KULLANIŞLI DEĞİLDİR ÇÜNKÜ HERHANGİ BİR
+        //METOT VEYA ÖZELLİĞİ MİRAS almaz
+
+
+        //NEW KULLANMADAN ÇAĞRILAN BOOLEN FONKSİYON BOOLEAN OLMAYAN TİPLERİ BOOLEAN A ÇEVİRİR
+
+        console.log(Boolean("test"));
+        //true
+        console.log(Boolean(""));
+        //false
+        console.log(Boolean({}));
+        //true
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

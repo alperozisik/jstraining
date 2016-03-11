@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div>Bu metin normal gözükmeli</div>
+
+    <p>Bu metin mavi gözükmeli 1</p>
+
+    <span>Bu metin mavi gözükmeli 2</span>
+
+    <div>Bu metin normal gözükmeli</div>
+
+    <p>Bu metin mavi gözükmeli 3</p>
+
+    <span>Bu metin mavi gözükmeli 4</span>
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+    <script>
+        
+
+
+
+
+
+        $(document).ready(function () {
+
+            // p ve span lara ilgili stili uyguluyor
+            //p nin içine span eklemiyor p ve spanlara belirtilen stili ekliyor
+            //zincir metot
+
+         //   $("p").add("div").addClass("widget");
+
+
+          $('p').add('span').css('background-color', 'blue');
+            
+         //   $('p').add('span').add('div').css('background-color', 'blue');
+
+        });
+</script>
+</body>
+</html>

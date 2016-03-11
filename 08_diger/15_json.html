@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+        //1**********************************************************************************************
+        var sonuc = JSON.parse('{"a": 1, "b": "2"}');
+        //  Object
+        console.log(sonuc);
+        console.log(sonuc.b);
+        //  "2"
+
+
+        var sonuc = JSON.parse('{"a": 1, "b": "2"}', function (anahtar, deger) {
+            if (typeof deger == 'string') {
+                return parseInt(deger);
+            } else {
+                return deger;
+            }
+        })
+
+        console.log(sonuc.b);
+        // 2
+
+
+
+        //2*****************************************************************************************
+
+        // Basitçe, JSON.stringify bir değer alır ve geriye bir karakter dizisi döndürür.
+
+        var mike = JSON.stringify({ mike: "taylor" })
+
+        console.log(mike);
+
+
+        //   '{"mike": "taylor"}'
+
+        console.log(typeof mike);
+        //  "string"
+
+
+
+        var sonuc2 = JSON.parse(mike);
+        console.log(sonuc2);
+
+        //3*******************************************************************************
+
+
+
+        var sayilar = {
+            "birinci": 7,
+            "ikinci": 14,
+            "ucuncu": 13
+        }
+
+        var sansliNumaralar = JSON.stringify(sayilar, function (anahtar, deger) {
+            if (deger == 13) {
+                return undefined;
+            } else {
+                return deger;
+            }
+        });
+
+        console.log(sansliNumaralar);
+        // '{"birinci": 7, "ikinci": 14}'
+
+
+
+
+        //space - baoşluk bırakmak için son parametre ekleniyor*************************
+        var sansliNumaralar = JSON.stringify(sayilar, function (anahtar, deger) {
+            if (deger == 13) {
+                return undefined;
+            } else {
+                return deger;
+            }
+        }, 1);
+
+        console.log(sansliNumaralar);
+
+
+        //'{
+        //"birinci":7,
+        //"ikinci":14
+        //}'
+
+
+
+
+
+
+        function Person() {
+            this.name = "Ted";
+            Object.defineProperty(this, 'age', {
+                value: 5,
+                writable: true,
+                configurable: true,
+                enumerable: false // this is the default value, so it could be excluded
+            });
+        }
+
+
+        var persons = [];
+
+        persons[0] = new Person();
+        persons[1] = new Person();
+        console.log(persons);
+
+        console.log(JSON.stringify(persons));  // [{"name":"Ted"},{"name":"Ted"}]
+
+
+        //var kisi = new Person();
+        //console.log(JSON.stringify(kisi));
+
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+
+        var s = new String('HelloJavaScriptWorld');
+
+
+
+
+        //BURADA TWO NUN ÖNÜNDE VE THREE NİN SONUNDA BOŞLUK KALIYOR
+        var csv = 'one, two,three ,four';
+        console.log(csv.split(','));
+        //["one", " two", "three ", "four"]
+
+
+
+
+        //BURADA BU DÜZELTİLİYOR VİRGÜLÜN ÖNÜNDE VE SONUNDA SIFIR VEYA DAHA FAZLA BOŞLUK OLANLARDA ALINIYOR
+        console.log(csv.split(/\s*,\s*/));
+        //["one", "two", "three", "four"] ["one", "two", "three", "four"]
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

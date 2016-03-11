@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XHR Request Headers Example</title>
+</head>
+<body>
+    <p>This example must be run on a server to work properly.</p>
+    <script type="text/javascript">
+
+
+
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                    alert(xhr.responseText);
+                } else {
+                    alert("Request was unsuccessful: " + xhr.status);
+                }
+
+
+            }
+        };
+        xhr.open("get", "http://localhost/jsegitim/example.php", true);
+        xhr.setRequestHeader("MyHeader", "Benim Degerim");
+
+        xhr.send(null);
+
+
+    </script>
+
+    <img src="images/01.png" /><p></p>
+    <img src="images/02.png" /><p></p>
+    <img src="images/03.png" /><p></p>
+
+
+
+
+</body>
+</html>

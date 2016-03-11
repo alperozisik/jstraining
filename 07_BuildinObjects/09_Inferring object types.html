@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+
+        //NESNEYLE DİZİ ARASINDAKİ FARKLILIĞI ANLAYABİLMEK İÇİN AŞAĞIDAKİ İFADELERİ YAZABİLİRİZ
+        //DAHA GENEL BİR İFADEYLE NESNELERİN TİPİ HAKKINDA AŞAĞIDAKİ ŞEKİLLERDE BİLGİ EDİNEBİLİRİZ
+
+
+        console.log(Object.prototype.toString.call({}));
+        // "[object Object]"
+
+        console.log(Object.prototype.toString.call([]));
+        // "[object Array]"
+
+
+
+        console.log([1, 2, 3].toString());
+        //"1,2,3"
+
+
+        console.log(Array.prototype.toString.call([1, 2, 3]));
+        //"1,2,3"
+
+
+        var toStr = Object.prototype.toString;
+
+        console.log((function () {
+            return toStr.call(arguments);
+        }()));
+
+        //"[object Arguments]"
+
+
+        console.log(toStr.call(window));
+        // "[object global]"
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

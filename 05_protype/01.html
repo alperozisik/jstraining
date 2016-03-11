@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        function foo(a, b) {
+            return a * b;
+        }
+
+
+        console.log(foo.length);
+        //2 parametrelerin sayısı
+
+        console.log(foo.constructor);
+
+        //function Function() { [native code] }
+
+
+        //BİR FONKSİYON OLUŞTURULDUĞUNDA PROTOTYPE ÖZELLİĞİ DE (PROPERTY) OLUŞTURULUYOR. BU ÖZELLİK İÇİNDE
+        // NESNE BARINDIRIR. BU NESNENİN İÇİ BOŞTUR
+
+
+
+        console.log(typeof foo.prototype);         //"object"
+
+
+        console.log(foo.prototype = {});
+
+        //FONKSİYONA DOĞRUDAN BİR ETKİSİ YOKTUR ANCAK FONKSİYON BİR CONSTRUCTOR OLARAK KULLANILDIĞINDA ETKİNDİR
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

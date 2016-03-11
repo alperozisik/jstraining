@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+    <script>
+        $(function () {
+
+            var myDiv = $("div");
+
+           //  console.log($("div p").text());
+
+            //1  console.log(myDiv.find("p").text());
+            //2  console.log(myDiv.children("p").text());
+
+            //3    $("div p");
+
+            //4   console.log($("div").find("p>strong").text());
+
+            //   alert($("div").find("p>strong").text());
+        });
+
+        //        div
+        //            - p
+        //            - p
+        //            - -strong
+
+
+    </script>
+
+</head>
+<body>
+    <div>
+        <p>Paragraf <strong>bir</strong></p>
+        <p>Paragraf İki</p>
+    </div>
+</body>
+</html>

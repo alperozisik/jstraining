@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        // addMethod - By John Resig (MIT Licensed)
+        function addMethod(object, name, fn) {
+            var old = object[name];
+            //console.log(fn);
+
+            object[name] = function () {
+                console.log("args -" + arguments.length);
+                console.log("fn- " + fn.length);
+                console.log(object[name]);
+                //fn.length fonksiyon parametre uzunluğu
+                if (fn.length == arguments.length)
+
+
+                    return fn.apply(this, arguments);
+                else if (typeof old == 'function')
+                    return old.apply(this, arguments);
+            };
+
+            console.log(object[name]);
+
+        }
+
+
+
+
+
+        function Users() {
+            addMethod(this, "find", function () {
+                // Find all users...
+                return "parametresiz";
+            });
+            addMethod(this, "find", function (name) {
+                // Find a user by name
+                return name + " parametreli";
+            });
+            addMethod(this, "find", function (first, last) {
+                // Find a user by first and last name
+                return first + last + " parametreli";
+            });
+        }
+
+        var a = new Users();
+        // console.log(a.find());
+        //  console.log(a.find("Ad"));
+        //console.log(a.find("Ad", "- Soyad"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //function Users() { }
+        //addMethod(Users.prototype, "find", function () {
+        //    // Find all users...
+        //});
+        //addMethod(Users.prototype, "find", function (name) {
+        //    // Find a user by name
+        //});
+        //addMethod(Users.prototype, "find", function (first, last) {
+        //    // Find a user by first and last name
+        //});
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

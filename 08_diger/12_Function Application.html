@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        /* apply([thisObj[,argArray]])  ŞABLONU BUDUR. FONKSİYONUN KENDİSİNİ KENDİSİNE ATAR BÖYLECE THİS VALUES I OLUŞMUŞ
+        OLUR.*/
+
+
+
+
+
+        // define a function
+        var sayHi = function (who) {
+            return "Hello" + (who ? ", " + who : "") + "!";
+        };
+        // invoke a function
+        console.log(sayHi()); // "Hello"
+        console.log(sayHi('world')); // "Hello, world!"
+        // apply a function
+        console.log(sayHi.apply(null, ["world"])); // "Hello, world!"
+
+
+
+        var alien = {
+            sayHi: function (who) {
+                return "Merhaba" + (who ? ", " + who : "") + "!";
+            }
+        };
+        console.log(alien.sayHi('world'));; // "Hello, world!"
+        console.log(sayHi.apply(alien, ["humans"])); // "Hello, humans!"
+
+
+        // the second is more efficient, saves an array
+        sayHi.apply(alien, ["humans"]); // "Hello, humans!"
+        sayHi.call(alien, "humans"); // "Hello, humans!"
+
+
+
+
+
+
+
+        function callMe(arg1, arg2) {
+            var s = "";
+
+            s += "this value: " + this;
+            s += "<br />";
+            for (i in callMe.arguments) {
+                s += "arguments: " + callMe.arguments[i];
+                s += "<br />";
+            }
+            return s;
+        }
+
+
+        console.dir(callMe(1, 2));
+
+        // this value: [object Window]
+        // arguments: 1
+        // arguments: 2
+
+
+        console.dir(callMe.apply("alper", [4, 5]));
+
+        // this value: alper
+        // arguments: 4
+        // arguments: 5
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>

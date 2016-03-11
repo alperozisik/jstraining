@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+        var a = [1, "two", false, null, undefined];
+        console.log(a);
+        // [1, "two", false, null, undefined]
+        console.log(a[5] = [1, 2, 3]);
+        //   [1, 2, 3]
+        console.log(a);
+        //   [1, "two", false, null, undefined, Array[3]]
+
+
+
+
+
+
+        var a = [[1, 2, 3], [4, 5, 6]];
+        console.log(a);//        [[1, 2, 3], [4, 5, 6]]
+
+        console.log(a[0]); // [1, 2, 3]
+
+
+
+        console.log(a[1][2]); //        6
+
+
+        /*   Note also that you can use the array notation to access individual characters inside
+           a string. */
+        var s = 'one';
+        console.log(s[0]);
+        //"o"
+        console.log(s[1]);
+        //"n"
+        console.log(s[2]);
+        //"e"
+
+        console.log(typeof s[2]);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

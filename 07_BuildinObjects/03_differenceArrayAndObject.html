@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+
+        //DİZİ NESNELERİNİN UZUNLUK ÖZELLİĞİ BULUNUR, NORMAL NESNELERDE BU YOKTUR
+
+        var a = [], o = {};
+
+        console.log(a.length);
+        //0
+        console.log(o.length);
+        //"undefined"
+
+
+
+        a[0] = 1; o[0] = 1;
+
+        a.prop = 2;
+        o.prop = 3;
+        console.log(a.prop); // 2
+        console.log(o.prop); //3
+
+
+        console.log(a.length);
+        //1
+        console.log(o.length);
+
+
+        //UZUNLUKTA SET EDEBİLİYORUZ
+        a.length = 5
+        //5
+
+        console.dir(a);
+        //[1, undefined, undefined, undefined, undefined]
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

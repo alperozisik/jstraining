@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+        // güvensiz
+        var MYAPP = {};
+        // daha iyi
+        if (typeof MYAPP === "undefined") {
+            var MYAPP = {};
+        }
+        // ya da kısayol
+        var MYAPP = MYAPP || {};
+
+
+        
+
+        //AŞAĞIDAKİ FONKSİYON GÜVENLİ BİR ŞEKİLDE NAMESPACE OLUŞTURMAYA YARAR
+        //EĞER O NAMESPACE DEN VARSA YENİDEN OLUŞTURMAZ
+
+
+        MYAPP.namespace = function (ns_string) {
+            var parts = ns_string.split('.'),
+            parent = MYAPP,
+            i;
+            // strip redundant leading global
+            if (parts[0] === "MYAPP") {
+                parts = parts.slice(1);
+            }
+            for (i = 0; i < parts.length; i += 1) {
+                // create a property if it doesn't exist
+                if (typeof parent[parts[i]] === "undefined") {
+                    parent[parts[i]] = {};
+                }
+
+                parent = parent[parts[i]];
+            }
+            return parent;
+        };
+
+        
+        var module2 = MYAPP.namespace('MYAPP.modules.module2');
+        console.log(module2 === MYAPP.modules.module2);
+        // true
+
+       
+        MYAPP.namespace('modules.module51');
+        
+        MYAPP.namespace('once.upon.a.time.there.was.this.long.nested.property');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

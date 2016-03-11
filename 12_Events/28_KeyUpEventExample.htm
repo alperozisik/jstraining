@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Keyup Event Example</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+
+
+
+    <input type="text" id="myText" /><p />
+    <script type="text/javascript">
+        var textbox = document.getElementById("myText");
+
+
+
+        var handler = function (event) {
+
+            alert(event.keyCode);
+        };
+
+        textbox.addEventListener("keyup", handler, true);
+
+    </script>
+    <img src="images/03.png" /><br />
+    <img src="images/04.png" />
+</body>
+</html>

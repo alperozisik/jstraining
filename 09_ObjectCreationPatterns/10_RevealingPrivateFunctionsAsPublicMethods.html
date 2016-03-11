@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+
+        //   var myarray;
+
+
+        // BU ÖRNEKTE METOTLARIN PRİVATE YAPILMASI İNCELENİYOR
+        //GÖNDERİLEN BİR PARAMETRENİN DİZİ OLUP OLMADIĞI KONTROL EDİLEBİLİYOR
+        //VEYA GÖNDERİLEN BİR DİZİ VE SABİT DEĞERDE, SABİT DEĞERİN DİZİNİN KAÇINCI İNDEKSİ OLDUĞU HESAPLANIYOR
+
+        (function () {
+
+            myarray = {
+                isArray: isArray,
+                indexOf2: indexOf2,
+                inArray: indexOf2,
+                alper: cazgir
+            };
+
+
+
+            function cazgir() { return "mamu"; }
+
+
+            var astr = "[object Array]",
+            toString = Object.prototype.toString;
+
+            function isArray(a) {
+                return toString.call(a) === astr;
+            }
+
+
+            //GÖNDERİLEN BİR DİZİ VE SABİT DEĞER.... SABİT DEĞERİN DİZİNİN KAÇINCI İNDEKSİ OLDUĞU HESAPLANIYOR
+            function indexOf2(haystack, needle) {
+                var i = 0,
+                max = haystack.length;
+                for (; i < max; i += 1) {
+                    if (haystack[i] === needle) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+
+
+        }());
+
+
+
+
+        console.log(myarray.isArray([1, 2]));  // true
+        console.log(myarray.isArray({ 0: 1 }));  // false
+        console.log(myarray.indexOf2(["a", "b", "z"], "z")); // 2
+        console.log(myarray.inArray(["a", "b", "z"], "z"));  // 2
+
+
+
+
+
+        //Burada esas olarak  indexOf2 inArray içine atanmış ve kendini korumuş ve çalışmaya devam Ediyor...
+        //indexOf2 null olsa bile çalışmaya devam ediyor...
+
+        myarray.indexOf2 = null;
+        console.log(myarray.inArray(["a", "b", "z"], "b")); // 1
+
+
+
+    </script>
+
+
+</head>
+<body>
+    <img src="images/01.png" />
+    <img src="images/02.png" />
+
+</body>
+</html>

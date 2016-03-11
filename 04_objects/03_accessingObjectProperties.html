@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        var hero = {
+            breed: 'Turtle',
+            occupation: 'Ninja'
+        };
+
+
+
+        //BİR NESNENİN ÖZELLİKLERi BAŞKA BİR NESNEYİ BARINDIRABİLİR
+
+        var book = {
+            name: 'Catch-22',
+            published: 1961,
+            author: {
+                firstname: 'ALPER',
+                lastname: 'ÖZIŞIK'
+            }
+        };
+
+        console.log(book.author.firstname);
+        //"ALPER"
+
+
+        console.log(book['author']['lastname']);
+        //"ÖZIŞIK"
+
+        console.log(book.author['lastname']);
+        //  "ÖZIŞIK"
+        console.log(book['author'].lastname);
+        //   "ÖZIŞIK"
+
+        var key = 'firstname';
+        console.log(book.author[key]);
+        // "ALPER"
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

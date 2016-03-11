@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        //new KULLANMADAN DA NESNE OLUŞTURABİLİRİZ ANCAK DÖNDÜRÜLEN BİR NESNE OLMALI
+
+
+        function factory(isim) {
+            return {
+                name: isim
+            };
+        }
+
+        var o = factory('one');
+        console.log(o.name);
+        // "one"
+        console.log(o.constructor);
+        // function Object() { [native code] }
+
+
+
+
+
+        //! 2**************************************************************************************
+
+
+
+        function factory(name) {
+            return {
+                name: name
+            };
+        }
+
+        //Using the factory() function:
+        var o = factory('one');
+        console.log(o.name);
+        //  "one"
+        console.log(o.constructor);
+        //  function Object() { [native code] }
+
+
+        /*
+
+        //       BURADA NORMAL CONSTRUCTOR SENARYOSU:*/
+
+        function C() {
+            this.a = 1;
+        }
+
+        var c = new C();
+
+        console.log(c.a);
+        //   1
+
+
+        // fakat bir de buna bakalım:
+        function C2() {
+            this.a = 1;
+            return { b: 2 };
+        }
+
+        var c2 = new C2();
+
+        console.log(typeof c2.a);
+        //   "undefined"
+
+        console.log(c2.b);
+        //     2
+
+
+        //EĞER BİR FONKSİYONDA return   BİR OBJECT İSE  FONKSİYONUN THİS DEĞERİ YERİNE RETURN OBJESİNİN
+        //NESNE DEĞERLERİ DÖNDÜRÜLÜYOR.
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

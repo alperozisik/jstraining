@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ALPER ÖZIŞIK HTMl5 jquery</title>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2-vsdoc.js" ></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script >
+
+        $(document).ready(function () {
+
+
+
+            var i = 0;
+            
+            $("input").keypress(function (e) {
+
+                $("span").text(i += 1);
+
+            });
+
+        });
+    </script>
+   
+</head>
+
+<body >
+   <input type="text"  />
+    <p>Tuş basımı:<span>0</span></p>
+</body>
+</html>

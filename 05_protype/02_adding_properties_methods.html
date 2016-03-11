@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+
+        function Gadget(name, color) {
+            this.name = name;
+            this.color = color;
+            this.whatAreYou = function () {
+                return 'I am a ' + this.color + ' ' + this.name;
+            }
+        }
+
+
+
+        //CONSTRUCTORE METHOD VE PROPERTIES LERİ EKLEMENİN DİĞER BİR YOLU DA
+        //PROTOTYPLERİ KULLANMAKTIR
+
+
+
+        Gadget.prototype.price = 100;
+        Gadget.prototype.rating = 3;
+        Gadget.prototype.getInfo = function () {
+            return 'Rating: ' + this.rating + ', price: ' + this.price;
+        };
+
+
+        //// DİĞER BİR PROTOTYPE ÖZELLİK EKLEME YÖNTEMİ
+
+        //Gadget.prototype = {
+        //    price: 100,
+        //    rating: 3,
+        //    getInfo: function() {
+        //        return 'Rating: ' + this.rating + ', price: ' + this.price;
+        //    }
+        //};
+
+
+
+
+
+
+
+        var newtoy = new Gadget('webcam', 'black');
+        console.log(newtoy.name);
+        // "webcam"
+
+
+        console.log(newtoy.color);
+        //"black"
+        console.log(newtoy.whatAreYou());
+        //"I am a black webcam"
+
+        console.log(newtoy.price);
+        //100
+        console.log(newtoy.rating);
+        //3
+        console.log(newtoy.getInfo());
+        //"Rating: 3, price: 100"
+
+
+        //PROTOTYPE LER HER  YENİ NESNE OLUŞTURULDUĞUNDA KOPYALANMAZLAR - yani herbiri için yeni bir prototype oluşturulmaz
+        //BUNUN ANLAMI PROTOTYPE HERHANGİ BİR ZAMANDA MODİFİYE EDEBİLİRSİN VE BUNU BÜTÜN NESNELER GÖRÜR
+
+
+
+        //ÖRNEĞİN BURADA Gadget E YENİ BİR METOT EKLENİYOR
+        Gadget.prototype.get = function (what) {
+            return this[what];
+        };
+
+
+
+        //BURADA get metodu newtoy dan sonra oluşturuluyor, ancak newtoy nesnesi bu yeni metoda erişebiliyor
+
+        console.log(newtoy.get('price'));
+        // 100
+        console.log(newtoy.get('color'));
+        //"black
+
+        console.log(newtoy);
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

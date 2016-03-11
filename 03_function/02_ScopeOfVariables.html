@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        ////1. ornek ************************************************************************
+
+
+
+        //var global = 5;
+
+        //function f() {
+        //    var local = 2;
+        //    global++;
+        //    return global;
+        //}
+
+
+        //console.log(f());
+        ////6
+        //console.log(f());
+        //////7
+
+        //console.log(local); //error
+
+
+
+
+
+        // 1A ******************************************************************
+        //function f() {
+        //    local = 2;
+        
+
+        //}
+
+
+        ////  console.log(local);
+        //f();
+        //console.log(local);
+
+        //// 1A ******************************************************************
+
+
+
+
+
+
+
+
+        ////2. ornek ************************************************************************
+
+        var a = 123;
+
+        function f() {
+            alert(a);  //undefined
+            var a = 1;  //
+            alert(a);  // 1
+
+            //var b = 1;
+            //alert(b);  // 1
+        }
+
+
+        f();
+        alert(a);
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+     
+
+        function f() {
+            return arguments;
+        }
+        console.log(f(1, 2, 3));
+        //[1, 2, 3]
+
+
+      
+
+        //ARGUMENTS LER DİZİYE BENZER NESNELERDİR ÇÜNKÜ İNDEXLENMIŞ ELEMENTLERE VE LENGITH
+        //ÖZELLİĞİNE SAHİPTİR. ANCAK BENZERLİK BURADA BİTER DİĞER DİZİ METOTLARINA SAHİP DEĞİLDİR
+        //(SORT, SLICE GİBİ)
+
+
+
+
+        //ANCAK DİZİLERİN FAYDALARINDAN YARARLANMAK İÇİN ARGUMENTS LERİ DİZİLERE ÇEVİREBİLİRİZ
+
+        function f() {
+            var args = [].slice.call(arguments);
+            return args.reverse();
+        }
+
+        console.log(f(1, 2, 3, 4));
+        // [4, 3, 2, 1]
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

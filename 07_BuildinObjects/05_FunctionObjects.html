@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        //ALTERNATİF FONKSİYON OLUŞTURMA YÖNTEMİ HAZIR GELEN Function() İFADESİDİR AMA TAVSİYE EDİLMEZ
+
+
+        function sum(a, b) {
+            return a + b;
+        };
+        console.log(sum(1, 2));
+        //3
+
+        var sum = function (a, b) {
+            return a + b;
+        };
+        console.log(sum(1, 2));
+        //3
+
+        var sum = new Function('a', 'b', 'return a + b;');
+        console.log(sum(1, 2));
+        //3
+
+        var first = new Function('a, b, c, d', 'return arguments;');
+        console.log(first(1, 2, 3, 4));
+        //[1, 2, 3, 4]
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

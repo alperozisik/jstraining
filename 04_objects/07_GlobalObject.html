@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        //NEW OPERATORU KOYMADAN THİS DEĞİŞKENİNE ANCAK AŞAĞIDAKİ GİBİ ULAŞILABİLİR
+        //DİĞER BİR İFADEYLE new kullanmazsak BUNLAR GLOBAL DEĞİŞKENLER OLUR VE BULUNDUKLARI ORTAMIN THIS İNİ TEMSİL EDERLER
+        //BURADA BU WİNDOW
+
+        function Hero(name) {
+            this.name = name;
+        }
+
+        var h = Hero('alper');
+        console.log(h);
+        console.log(typeof h);
+        //    "undefined"
+
+        //  console.log(typeof h.name);
+        // TypeError: Cannot read property 'name' of undefined
+
+
+
+
+        console.log(this.name);
+        // "alper"
+
+        console.log(window.name);
+        // "alper"
+
+
+        console.dir(name);
+        // "alper"
+
+
+
+        //2**********************************************
+
+        var h2 = new Hero('Michelangelo');
+        console.log(typeof h2);
+        //  "object"
+        console.log(h2.name);
+        //   "alper"
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

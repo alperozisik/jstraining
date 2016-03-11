@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+        /*
+   •  match() returns an array of matches  -- YAKALADIKLARININ BİR DİZİSİNİ DÖNDÜRÜR
+   •  search() returns the position of the first match -- İLK YAKALADIĞININ POZİSYONUNU DÖNDÜRÜR
+   •  replace() allows you to substitute matched text with another string -- YAKALADIĞI STRİNGİN YERİNİ ALIR
+   •  split()also accepts a regexp when splitting a string into array elements -- DİZİ ELEMANLARI İÇİNDE A BİR STRING AYIRIR                    */
+
+
+        /* search() ve match()
+       */
+
+
+        var s = new String('HelloJavaScriptWorld');
+
+        console.log(s.match(/a/));
+        //["a"]
+
+
+
+        //BURADAKİ g BÜTÜN CÜMLE İÇİN GEÇERLİ KILIYOR
+        console.log(s.match(/a/g));
+        //["a", "a"]
+
+
+        //Büyük küçük harf duyarsız
+        console.log(s.match(/j.*a/i));
+        // ["Java"]
+
+        // search()  yakaladığı stringin pozisyonunu verir:
+        console.log(s.search(/j.*a/i));
+        //5
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

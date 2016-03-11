@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ALPER ÖZIŞIK HTMl5 jquery</title>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2-vsdoc.js" ></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script >
+
+        $(document).ready(function () {
+
+           
+
+            
+            $(".div1").mouseenter(function () { $(this).addClass("hovering"); })
+
+                      .mouseleave(function () { $(this).removeClass("hovering");});
+
+
+            //$(".div1")
+            //    .bind("mouseenter", function () { $(this).addClass("hovering"); })
+
+            //    .bind("mouseleave", function () { $(this).removeClass("hovering"); });
+
+
+
+            //$(".div1").hover(function () { $(this).addClass("hovering"); },
+            //    function () { $(this).removeClass("hovering"); });
+        });
+    </script>
+    <style>
+        .hovering {
+            color:red;
+        }
+        
+    </style>
+</head>
+
+<body >
+   <div class="div1">Olay Tanımları - multi function</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>has() function</title>
+</head>
+<body>
+
+    <div>Bu metin normal  <span>gözükmeli</span>.</div>
+
+    <div>Bu metnin arka rengi <em>kýrmýzý</em> gözükmüþ olmalý</div>
+
+    <div>Bu metin normal  <strong id="select">gözükmeli</strong>.</div>
+
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('div').has('em').css('background-color', 'red');
+
+
+        });
+</script>
+</body>
+</html>

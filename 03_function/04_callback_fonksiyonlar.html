@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        function invoke_and_add(a, b) {
+
+            //a = b;
+
+            return a() + b();
+        }
+
+
+        function one() {
+            return 1;
+        }
+
+
+        function two() {
+            return 2;
+        }
+
+        console.log(invoke_and_add(one, two));
+        // 3
+
+        console.log(invoke_and_add(function () { return 5; }, function () { return 3; })); //8
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

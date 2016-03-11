@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+
+        var parent = {
+            name: "Papa"
+        };
+
+
+
+
+
+        //   var child = Object.create(parent);
+
+
+        var child = Object.create(parent, {
+            age: { value: 2 } // ECMA5 descriptor
+        });
+        console.log(child.hasOwnProperty("age"));  // true
+
+        console.log(child.name); //Papa
+        console.log(child.age);  //2
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

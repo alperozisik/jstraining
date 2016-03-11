@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        //1***********************************************************************
+
+
+        //function Hero() {
+        //    this.occupation = 'Ninja';
+        //}
+
+        //var hero = new Hero();
+
+        //console.log(hero.occupation);
+        ////  "Ninja"
+
+
+
+        //2***********************************************************************
+
+       
+
+        function Hero(name) {
+            this.name = name;
+            this.occupation = 'Ninja';
+            this.whoAreYou = function () {
+                return "I'm " + this.name + " and I'm a " + this.occupation;
+            }
+        }
+
+
+     
+
+        var h1 = new Hero('alper');
+        var h2 = new Hero('cazgir');
+        console.log(h1.whoAreYou());
+        console.log(h2.whoAreYou());
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

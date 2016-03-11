@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        var hero = {};
+
+        //   Accessing a non-existing property:
+        console.log(typeof hero.breed);
+        // "undefined"
+
+        //  Adding some properties and a method:
+        hero.breed = 'turtle';
+        hero.name = 'Leonardo';
+        hero.sayName = function () { return this.name; };
+        //   Calling the method:
+        console.log(hero.sayName());
+        // "Leonardo"
+
+        delete hero.name;
+        //   true
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+
+        //DAHA ÖNCEKİ BÖLÜMDE BİR FONKSİYONUN KENDİ ÖZELLİĞİ YOKSA PROTOTYPE BAŞVURDUĞUNU GÖRDÜK
+        //AYNI ADLA HEM KENDİ PROPERTİESİ HEM DE PROTOTYPE I OLURSA?
+
+        function Gadget(name) {
+
+            this.name = name;
+        }
+
+
+        Gadget.prototype.name = 'mirror';
+
+        
+
+        var toy = new Gadget('camera');
+        console.log(toy.name);
+        // "camera"
+        //BURADA GÖRÜLDÜĞÜ ÜZERE ÖNCELİKLE KENDİ PROPERTIES İNİ KULLANIYOR
+
+
+
+        //KENDİ PROPERTIES İ OLUP OLMADIĞINI hasOwnProperty() İLE KONTROL EDEBİLİRİZ
+        console.log(toy.hasOwnProperty('name'));
+        // true
+
+
+
+        //  EĞER KENDİ PROPERTİES İNİ SİLERSEK, PROTOTYPE'INKİ DEVREYE GİRER
+        console.log(delete toy.name);
+        // true
+
+        console.log(toy.name);
+        // "mirror"
+
+
+        console.log(toy.hasOwnProperty('name'));
+        // false
+
+        console.log(toy.constructor.prototype.hasOwnProperty('name'));
+        // true
+
+        // HER ZAMAN YENİDEN KENDİ PROPERTIES İNİ ATAYABİLİRİZ
+
+        toy.name = 'camera';
+        console.log(toy.name);
+        // "camera"
+
+
+
+
+        // BURADA toString() METODUNUN KİME AİT OLDUĞU SORGULANIYOR
+
+
+        console.log(toy.toString());
+        // "[object Object]"
+
+        console.log(toy.hasOwnProperty('toString'));
+        // false
+
+        console.log(toy.constructor.hasOwnProperty('toString'));
+        //false
+        console.log(toy.constructor.prototype.hasOwnProperty('toString'));
+        //false
+        console.log(Object.hasOwnProperty('toString'));
+        //false
+        console.log(Object.constructor.prototype.hasOwnProperty('toString'));
+        //true
+        // Ahaa!
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

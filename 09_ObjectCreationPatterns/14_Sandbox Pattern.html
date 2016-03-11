@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script src="sandbox.js"></script>
+    <script>
+
+
+
+
+
+
+        //SANCBOX DA MODULLER OLUŞTURULUYOR
+
+
+        Sandbox.modules = {};
+
+        Sandbox.modules.dom = function (box) {
+            box.getElement = function () { return "alper" };
+            box.getStyle = function () { };
+            box.foo = "bar";
+        };
+        Sandbox.modules.event = function (box) {
+            // access to the Sandbox prototype if needed:
+            // box.constructor.prototype.m = "mmm";
+            box.attachEvent = function () { return "eklendi" };
+            box.dettachEvent = function () { return "bırakıldı" };
+        };
+        Sandbox.modules.ajax = function (box) {
+            box.makeRequest = function () { };
+            box.getResponse = function () { };
+        };
+
+
+        //DAHA SONRA BUNLAR SANDBOX A EKLENİYOR
+
+        //BİRKAÇ EKLENME YÖNTEMİ VAR
+
+
+        //1. YÖNTEM ************************************
+        Sandbox(['ajax', 'event'], function (box) {
+            console.log(box.attachEvent());
+            console.log(box.dettachEvent());
+
+        });
+
+
+
+
+        //        This example is similar to the preceding one, but this time module names are passed
+        //        as individual arguments:
+
+
+        //2. YÖNTEM ******************************************
+        Sandbox('ajax', 'dom', function (box) {
+
+            console.log(box.foo);
+            console.log(box.getElement());
+            // console.log(box);
+        });
+
+
+
+        //3. YÖNTEM **********************************
+        Sandbox(function (box) {
+            //   console.log(box);
+
+            console.log(box.foo);
+            console.log(box.getElement());
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <img src="images/05.png" />
+</body>
+</html>

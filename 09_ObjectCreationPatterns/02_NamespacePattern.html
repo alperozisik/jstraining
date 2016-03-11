@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+      
+
+        //BURADA 5 TANE GLOBAL OBJECT VAR
+
+
+
+        function Parent() { }
+        function Child() { }
+
+        // a variable
+        var some_var = 1;
+
+        // some objects
+        var module1 = {};
+        module1.data = { a: 1, b: 2 };
+        var module2 = {};
+
+       
+
+
+        //BUNU BİR GOLOBAL OBJECT DE TOPLAYABİLİRİZ
+
+        var MYAPP = {};
+
+        // constructors
+        MYAPP.Parent = function () { };
+        MYAPP.Child = function () { };
+
+        // a variable
+        MYAPP.some_var = 1;
+        // an object container
+
+        MYAPP.modules = {};
+        // nested objects
+
+        MYAPP.modules.module1 = {};
+        MYAPP.modules.module1.data = { a: 1, b: 2 };
+        MYAPP.modules.module2 = {};
+
+        
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

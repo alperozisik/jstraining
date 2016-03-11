@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        //DİZİLERDEN KONUŞULURKEN ELEMENTLERDEN BAHSEDİLİR, NESNELERDEN KONUŞULURKEN PROPERTIES LERDEN....
+
+
+
+
+
+        //PROPERTIES AYNI ZAMANDA BİRER FONKSİYON BARINDIRABİLİRLER
+
+        var dog = {
+            name: 'Benji',
+            talk: function talk () {
+                alert('Woof, woof!');
+            }
+        };
+
+
+
+
+        //AYNI ŞEKİLDE DİZİ ELEMENTLERİ DE BİR FONKSİYON BARINDIRABİLİR ANCAK BU ÇOK KARŞILAŞILAN BİR DURUM DEĞİLDİR
+
+        var a = [];
+        a[0] = function (what) { alert(what); };
+        a[0]('Boo!');
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

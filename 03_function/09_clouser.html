@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        var a = "global variable";
+
+        var F = function () {
+            var b = "local variable";
+            var N = function () {
+                var c = "inner local";
+                return b;
+            };
+            return N;
+        };
+
+
+        //    console.log(b);  //  ReferenceError: b is not defined
+        var inner = F();
+        //console.log(b);
+        console.log(inner()); // "local variable"
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

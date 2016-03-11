@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+        var s = new String("Couch potato");
+        console.log(s.toUpperCase());
+        //"COUCH POTATO"
+        console.log(s.toLowerCase());
+        //"couch potato"
+
+        console.log(s.charAt(0));
+        //"C"
+        console.log(s[0]);
+        //"C"
+
+
+        console.log(s.indexOf('o'));
+        //1
+
+        console.log(s.indexOf('o', 2));
+        //7
+
+
+        console.log(s.lastIndexOf('o'));
+        //  11
+
+
+
+        console.log(s.indexOf('Couch'));
+        // 0
+
+        console.log(s.indexOf('couch'));
+        // -1
+
+
+        console.log(s.toLowerCase().indexOf('couch'));
+        //0
+
+
+
+        //string.slice(beginIndex, endIndex)
+
+
+
+        //string.substr(beginIndex, length);
+
+        // "Couch potato"
+
+
+
+        console.log(s.slice(1, 5));
+        // "ouch"
+
+        console.log(s.substring(1, 5));
+        //"ouch"
+
+
+
+        //BAŞTAN BİR, SONDAN İKİ DEĞER SİLİYOR
+        console.log(s.slice(1, -2));
+        //"ouch pota"
+
+        //BİRİNCİYİ ALIYOR SONRA BİR GERİ GİDİYOR
+        console.log(s.substring(1, -1));
+        //"C"
+
+        console.log(s.substring(1, 0));
+        //"C"
+
+
+        console.log(s.split(" "));
+        //["Couch", "potato"]
+
+
+
+        console.log(s.split(' ').join(' '));
+        //"Couch potato"
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

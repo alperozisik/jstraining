@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+        
+
+
+        var myobj = {
+            myprop: 1,
+            getProp: function () {
+                return this.myprop;
+            }
+        };
+
+        console.log(myobj.myprop); // `myprop`  public OLARAK ERİŞİLEBİLİR
+        console.log(myobj.getProp()); // getProp() DA  public OLARAK ERİŞİLEBİLİR
+
+
+        //The same is true when you use constructor functions to create objects; all members are still public:
+
+        function Gadget() {
+            this.name = 'iPod';
+            this.stretch = function () {
+                return 'iPad';
+            };
+        }
+        var toy = new Gadget();
+        console.log(toy.name); // `name` is public
+        console.log(toy.stretch()); // stretch() is public
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

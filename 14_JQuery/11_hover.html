@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Simulating hover</title>
+</head>
+<body>
+
+<div>Bu metin normal gözükmeli</div>
+
+    <div>
+                 <div>Bu metnin üzerinde gelindiðinde kýrmýzý, ayrýldýðýnda mavi olmalý</div>
+    </div>
+
+<div>Bu metin hiç bir zaman renklenmeyecek (çünkü taným çocuk elementler için yapýlmýþ)</div>
+
+
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+    $('div > div:contains("kýrmýzý")').hover(
+    function() {$(this).css('background-color', 'red')}, 
+    function() {$(this).css('background-color', 'blue')});
+
+});
+</script>
+</body>
+</html>

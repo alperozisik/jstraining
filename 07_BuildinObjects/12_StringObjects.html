@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+        var primitive = 'Hello';
+        console.log(typeof primitive);
+        //"string"
+        //   console.log(primitive[1]);  // "e"
+
+
+
+        var obj = new String('world');
+        console.log(typeof obj);
+        //"object"
+
+
+        console.log(obj[0]);
+        // "w"
+        console.log(obj[4]);
+        //"d"
+        console.log(obj.length);
+        //5
+
+
+        console.log(obj.valueOf());
+        //"world"
+        console.log(obj.toString());
+        //"world"
+        console.log(obj + "");
+        //"world"
+
+
+
+
+        //PRIMITIVE STRINGS LER NESNE DEĞİLDİR ONLAR PORPERTIES VE METOTLARA SAHİP DEĞİLDİR
+        //ANCAK JAVASCRİPT ONLAR BİR NESNEYMIŞ GİBİ DAVRANMAYA DEVAM EDİYOR YANİ ONLARA AİT ÖZELLİK VE METOTLARI KULLANIYOR
+
+
+        console.log("potato".length);
+        // 6
+        console.log("tomato"[0]);
+        //"t"
+        console.log("potato"["potato".length - 1]);
+        //"o"
+
+
+        //BOŞ STRİNG FALSE DÖNDÜRÜR ANCAK NESNESİ TRUE DÖNDÜRÜYOR
+
+        console.log(Boolean(""));
+        //false
+        console.log(Boolean(new String("")));
+        //true
+
+
+
+        console.log(String(1));
+        // "1"
+       
+
+        console.log(String({ p: 1 }));
+        // "[object Object]"
+
+        console.log(String([1, 2, 3]));
+        // "1,2,3"
+        console.log(String([1, 2, 3]) === [1, 2, 3].toString());
+        // true
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

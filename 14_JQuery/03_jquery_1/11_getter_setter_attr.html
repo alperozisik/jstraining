@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ALPER ÖZIŞIK HTMl5 jquery</title>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2-vsdoc.js" ></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script >
+
+        $(document).ready(function () {
+
+            //getter
+            var resimTitle = $("img.kitap").attr("title");
+            console.log(resimTitle);
+
+            //  setter
+
+            $("img.kitap")
+            .attr("title", "ASP ile ilgili ilk kitabı")
+            .hide()
+            .fadeIn(1500);
+
+
+            console.log($("img.kitap").attr("title"));
+        });
+    </script>
+
+    <style>
+        .stil {
+            background-color:#0094ff;
+            color:#00ff90
+        }
+        
+    </style>
+</head>
+
+<body >
+ 
+  
+  
+
+    <img src="../resim/asp.png" class="kitap"  title="alper özışık kitabı" />
+</body>
+</html>

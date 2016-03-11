@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+        //PUSH DİZİNİN SONUNA BİR ELEMAN EKLER, POP DİZİNİN SONUNDAKİ BİR ELEMANI ÇIKARTIR
+
+        var a = [3, 5, 1, 7, 'test'];
+
+        console.log(a.push('yeni'));
+        //6
+
+        console.log(a);
+        //[3, 5, 1, 7, "test", "yeni"]
+
+        console.log(a.pop());
+        //"yeni"
+
+
+        console.log(a);
+        //[3, 5, 1, 7, "test"]
+
+
+        var b = a.sort();
+        console.log(b);
+        //[1, 3, 5, 7, "test"]
+        console.log(a);
+        //[1, 3, 5, 7, "test"]
+
+
+        console.log(a === b);
+        //  true
+
+
+
+
+        //join() dizideki elemanları birleştirir
+
+        console.log(a.join(' ve '));
+        //"1 ve 3 ve 5 ve 7 ve test"
+
+
+
+
+        console.log(b);
+        //[1, 3, 5, 7, "test"]
+
+        console.log(b = a.slice(1, 3));
+        //[3, 5]
+
+        console.log(b = a.slice(0, 1));
+        //[1]
+        console.log(b = a.slice(0, 2));
+        //[1, 3]
+
+
+        //ANA NESNE BOZULMUYOR
+        console.log(a);
+        //[1, 3, 5, 7, "test"]
+
+
+
+
+        b = a.splice(1, 2, 100, 101, 102);
+        console.log(b);
+        // BURADA 1 VE 2 İNDEXİ ÇIKARTIP O ARAYA 100, 101, 102 KOYAR
+        //[3, 5]
+        console.log(a);
+        //[1, 100, 101, 102, 7, "test"]
+
+
+
+        console.log(a.splice(1, 3));
+        //[100, 101, 102]
+        console.log(a);
+        //[1, 7, "test"]
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

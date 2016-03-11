@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+        //REGEX test() ve exec() İSMİNDE İKİ METOTLA GELİYOR. İKİSİ DE STRİNG PARAMETRELERİ KABUL EDİYOR
+        // test() BOOLEAN DEĞER DÖNDÜRÜYOR
+        //EXEC DOĞRULADIĞI STRINGLERİN BİR DİZİSİNİ DÖNDÜRÜYOR
+
+
+
+
+        console.log(/j.*t/.test("Javascript"))
+        // false
+
+
+
+        console.log(/j.*t/i.test("Javascript"));
+        //true
+
+
+        console.log(/j.*t/i.exec("Javascript")[0]);
+        //"Javascript"
+
+
+
+        var myRe = /ab*/g;
+        var str = "abbcdefabh";
+        var myArray;
+
+
+        while ((myArray = myRe.exec(str)) !== null) {
+
+
+            var msg = "Found " + myArray[0] + ".  ";
+            msg += "Next match starts at " + myRe.lastIndex;
+            console.log(msg);
+        }
+
+        //Found abb.  Next match starts at 3
+        //Found ab.  Next match starts at 9
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

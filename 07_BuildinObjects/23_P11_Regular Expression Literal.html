@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+        /*    Regular expressions in JavaScript are also objects, and you have two options to create
+            them:
+            • Using the new RegExp()constructor
+            • Using the regular expression literal
+            The following sample code demonstrates two ways to create a regular expression that
+            matches a backslash: */
+
+
+        // regular expression literal
+        var re = /\\/gm;
+        // constructor
+        var re = new RegExp("\\\\", "gm");
+
+        /*
+        As you can see, the regular expression literal notation is shorter and doesn’t force you
+        to think in terms of class-like constructors. Therefore it’s preferable to use the literal.
+        Additionally, when using the RegExp()constructor, you also need to escape quotes and
+        often you need to double-escape backslashes, as shown in the preceding snippet, where
+        we need four backslashes to match a single one. This makes your regular expression
+        patterns longer and harder to read and modify. Regular expressions are hard enough
+        to begin with, and any chance to simplify them is welcome, so it’s best to stick to the
+        literal notation. */
+
+
+
+        /*     Regular Expression Literal Syntax
+             The  regular expression literal notation uses forward slashes to wrap the regular expression pattern used for matching.
+             Following the second slash, you can put the pattern
+             modifiers in the form of unquoted letters:
+             • g—Global matching
+             • m—Multiline
+             • i—Case-insensitive matching
+             The pattern modifiers can appear in any order or combination:
+            */
+
+        //  var re = /pattern/gmi;
+
+
+
+        /* Using the regular expression literal helps write more concise code when calling methods
+         such  as  String.prototype.replace() that  accept  regular  expression  objects  as
+         parameters. */
+
+        var no_letters = "abc123XYZ".replace(/[a-z]/gi, "");
+        console.log(no_letters); // 123
+
+
+        /*   One reason to use  new RegExp()is that the pattern is not known in advance but is created
+           as a string at runtime.
+           Another distinction between the regular expression literal and the constructor is that
+           the literal creates an object only once during parse time. If you create the same regular
+           expression in a loop, the previously created object will be returned with all its properties
+           (such as lastIndex) already set from the first time. Consider the following example as
+           an illustration of how the same object is returned twice. */
+
+        function getRE() {
+            var re = /[a-z]/;
+            re.foo = "bar";
+            return re;
+        }
+
+        var reg = getRE(),
+        re2 = getRE();
+
+        console.log(reg === re2); // true  // fakat gerçekte false dönüyor
+
+        reg.foo = "baz";
+        console.log(re2.foo); // "baz"
+
+
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

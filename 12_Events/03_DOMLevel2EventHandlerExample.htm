@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>DOM Level 2 Event Handler Example</title>
+</head>
+<body>
+    <input type="button" id="myBtn" value="Click Me" />
+    <p>This example won't work in Internet Explorer.</p>
+
+
+    <!--DOM Level 2 Events define two methods to deal with the assignment and removal of event
+    handlers: addEventListener()and removeEventListener(). These methods exist on all DOM
+    nodes and accept three arguments: the event name to handle, the event handler function, and a
+    Boolean value indicating whether to call the event handler during the capture phase (true) or during
+    the bubble phase (false).
+    To add an event handler for the clickevent on a button, you can use the following code:-->
+
+
+    <script type="text/javascript">
+        var btn = document.getElementById("myBtn");
+        btn.addEventListener("click", function () {
+            alert(this.id);
+        }, false);
+
+
+        btn.addEventListener("click", function () {
+            alert("Hello world!");
+        }, false);
+
+    </script>
+
+
+    <!--window.addEventListener("click", function(){alert(1)}, false);
+    window.addEventListener("click", function(){alert(2)}, true);
+    window.addEventListener("click", function(){alert(3)}, false);
+    window.addEventListener("click", function(){alert(4)}, true);
+
+    The alert boxes will pop up in this order:
+
+    2 (defined first, using capture=true)
+    4 (defined second using capture=true)
+    1 (first defined event with capture=false)
+    3 (second defined event with capture=false)-->
+
+
+
+
+    <!--This code adds an onclickevent handler to a button that will be fired in the bubbling phase (since
+    the last argument is false). As with the DOM Level 0 approach, the event handler runs in the scope
+    of the element on which it is attached. The major advantage to using the DOM Level 2 method for
+    adding event handlers is that multiple event handlers can be added. Consider the following example:-->
+
+
+</body>
+</html>

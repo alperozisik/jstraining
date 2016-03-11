@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        var original = {
+            howmany: 1
+        };
+
+        var mycopy = original;
+
+        console.log(mycopy.howmany);
+        // 1
+
+        //REFERANS NESNEDE YAPTIĞIN DEĞER DEĞİŞİKLİKLERİ ORGİNAL NESNEYE DE YANSIR
+
+        console.log(mycopy.howmany = 100);
+        //  100
+
+        console.log(original.howmany);
+        // 100
+
+
+        //The same thing applies when passing objects to functions:
+        var original =
+            {
+                howmany: 100
+            };
+
+        var nullify = function (o) {
+            o.howmany = 0;
+        };
+
+        console.log(nullify(original));
+        console.log(original.howmany);
+        // 0
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        // GİZLİ BİR ÖZELLİĞE ERİŞEBİLEN METODA AYRICALIKLI-PRİVİLAGED METHOD DENİYOR
+        // DİĞER BİR İFADEYLE PRİVATE ÖZELLİĞE ERİŞEBİLEN PUBLİC METODA PRİVİLAGED METOD DENİR
+        function Gadget() {
+            // private member
+            var specs = {
+                screen_width: 320,
+                screen_height: 480,
+                color: "white"
+            };
+            // public function
+            this.getSpecs = function () {
+                return specs;
+            };
+        }
+
+
+
+        var toy = new Gadget(),
+        specs = toy.getSpecs();
+
+        // BURADA NORMALDE PRIVATE OLAN specs DEĞİŞKENİ YENİ BİR NESNE OLUŞUMUNDA RETURN EDİLİYOR VE ARTIK
+        //PRIVATE OLMASI GEREKEN ÖZELLİKLERE ERİŞİM SAĞLANIP DEĞİŞTİRİLEBİLİNİYOR
+
+        specs.color = "black";
+        specs.price = "free";
+        console.dir(toy.getSpecs());
+
+        //BURADA DİZİ VEYA NESNELERİ RETURN EDERKEN DİKKAT ETMELİ ÇÜNKÜ BU YÖNTEMLE ONLARIN PRİVATE ÖZELLİKLERİNE ERİŞİLEBİLİYOR
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

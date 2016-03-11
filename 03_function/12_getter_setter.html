@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+        (function () {
+            var secret = 0;
+            getValue = function () {
+
+                return secret;
+            };
+            setValue = function (v) {
+                if (typeof v === "number") {
+                    secret = v;
+                }
+            };
+        }());
+
+
+
+
+
+        console.log(getValue());
+        //  0
+        setValue(123);
+        console.log(getValue());
+        //  123
+        setValue(false);
+        setValue("ALPER");
+
+        console.log(getValue());
+        // 123
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

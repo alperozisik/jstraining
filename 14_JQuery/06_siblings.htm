@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html >
+
+<html >
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(function () {
+
+        $('li.third-item').siblings().css('background-color', 'red');
+
+    // $('li.third-item').siblings().andSelf().css('background-color', 'red');
+
+    });
+
+
+
+</script>
+
+<head>
+    <title></title>
+</head>
+<body>
+<ul>
+   <li>list item 1</li>
+   <li>list item 2</li>
+   <li class="third-item">list item 3</li>
+   <li>list item 4</li>
+   <li>list item 5</li>
+</ul>
+</body>
+</html>

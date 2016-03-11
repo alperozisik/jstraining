@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        var MYAPP = MYAPP || {};
+
+        MYAPP.namespace = function (ns_string) {
+            var parts = ns_string.split('.'),
+            parent = MYAPP,
+            i;
+            // strip redundant leading global
+            if (parts[0] === "MYAPP") {
+                parts = parts.slice(1);
+            }
+            for (i = 0; i < parts.length; i += 1) {
+                // create a property if it doesn't exist
+                if (typeof parent[parts[i]] === "undefined") {
+                    parent[parts[i]] = {};
+                }
+
+                parent = parent[parts[i]];
+            }
+            return parent;
+        };
+
+
+
+        MYAPP.namespace('modules.m1');
+        MYAPP.namespace('modules.m2');
+        MYAPP.namespace('modules.m51');
+
+        MYAPP.modules.m1 = "alper";
+
+
+        function test1() {
+            alert(MYAPP.modules.m1);
+            alert(MYAPP.modules.m2);
+            alert(MYAPP.modules.m51);
+        }
+        test1();
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

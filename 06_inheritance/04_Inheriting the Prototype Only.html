@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+
+        // BİR ÖNCEKİ ÖRNEKLERDE YENİDEN KULLANILAN PROPERTİES VE METOTLARI PROTOTYPE LA TANIMLAMIŞTIK
+        //SADECE PROTOTYP İ MİRAS GEÇİRMEKTE İYİ BİR FİKİR ÇÜNKÜ TEKRAR KULLANILAN BÜTÜN KOD ONUN İÇİNDE
+        //BUNUN ANLAMI Shape.prototype İLE OLUŞTURMAK new Shape() İLE OLUŞTURMAKTAN DAHA ANLAMLI
+        //ÇÜNKÜ new Shape() SADECE KENDİSİNE AİT ÖZELLİKLERİ VERMEKTE YENİDEN KULLANILAN BİR ŞEY İÇERMEMEKTEDİR
+
+        function Shape() { }
+        //  prototype i zenginleştirelim
+        Shape.prototype.name = 'shape';
+        Shape.prototype.toString = function () {
+            return this.name;
+        };
+
+        function TwoDShape() { }
+        // ornek oluştur
+        TwoDShape.prototype = Shape.prototype; //*****
+        TwoDShape.prototype.constructor = TwoDShape;
+
+        console.dir(TwoDShape.prototype.constructor);
+
+
+        //  prototype i zenginleştirelim
+        TwoDShape.prototype.name = '2D shape';
+
+        function Triangle(side, height) {
+            this.side = side;
+            this.height = height;
+        }
+        // ornek oluştur
+        Triangle.prototype = TwoDShape.prototype; //*****
+        Triangle.prototype.constructor = Triangle;
+
+        console.dir(Triangle.prototype.constructor);
+
+
+        //prototype i zenginleştirelim
+        Triangle.prototype.name = 'Triangle';
+        Triangle.prototype.getArea = function () {
+            return this.side * this.height
+            / 2;
+        }
+
+        //The test code will give the same result:
+        var my = new Triangle(5, 10);
+        console.log(my.getArea());
+        // 25
+        console.log(my.toString());
+        //"Triangle"
+
+
+
+
+
+
+
+
+        // BU TİP BİR MİRAS YAPISINDA JAVASCRİPT DAHA AZ ADIMDA İŞLEM YAPIYOR ANCAK BUNUN HANDİKABI
+        //BÜTÜN PARENTS VE CHILDS POINTS LER AYNI NESNE OLDUKLARI İÇİN EN SON NESNEDE YAPILAN PROTOTYPE
+        //ATAMASI BÜTÜN ÇOCUKLAR İÇİN GEÇERLİ OLUYOR (REFERANS TİP OLDUĞU İÇİN) (RESİME BAK)
+
+
+        //     Triangle.prototype.name = 'Triangle';
+
+
+
+        var s = new Shape();
+        console.log(s.name);
+        //"Triangle"
+
+
+    </script>
+</head>
+<body>
+    <img src="images/03.png" />
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+
+        var s = new String('HelloJavaScriptWorld');
+
+
+        //REPLACE METODUYLA EKSTRA BİR ŞEYLER YAPMAK İSTİYORSAK CALLBACK FONKSİYON TANIMLAYABİLİRİZ
+
+        function replaceCallback(match) {
+            return "_" + match.toLowerCase();
+        }
+
+        console.log(s.replace(/[A-Z]/g, replaceCallback));
+
+        //"_hello_java_script_world"
+
+
+        var glob;
+
+        var re = /(.*)@(.*)\.(.*)/;
+
+
+
+        var callback = function () {
+            glob = arguments;
+            return arguments[1] + ' at ' + arguments[2] + ' dot ' +
+            arguments[3];
+        }
+        //We can then call this as follows:
+
+
+        console.log("alper.ozisik@smartface.io".replace(re, callback));
+        //"alper.ozisik at smartface dot io"
+        // Here's what the callback function received as arguments:
+        console.log(glob);
+        //  ["alper.ozisik@smartface.io", "alper.ozisik", "smartface", "io", 0, "alper.ozisik@smartface.io"]
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <img src="images/02.png" />
+</body>
+</html>

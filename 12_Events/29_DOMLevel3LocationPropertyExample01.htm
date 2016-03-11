@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Keyup Event Example</title>
+ 
+</head>
+<body>
+
+
+
+
+    <input type="text" id="myText" /><p />
+    <script type="text/javascript">
+
+        var textbox = document.getElementById("myText");
+
+
+
+
+
+        //SHIFT DE BASILIYKEN HERHANGÝ BÝR TUÞA BASARSAN TRUE DÝÐERLERÝ FALSE
+        var handler = function (event) {
+
+            if (event.getModifierState) {
+                alert(event.getModifierState("Shift"));
+            }
+        };
+
+        textbox.addEventListener("keypress", handler, true);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        function multiplyByTwo(a, b, c) {
+            var i, ar = [];
+            for (i = 0; i < 3; i++) {
+                ar[i] = arguments[i] * 2;
+            }
+            return ar;
+        }
+        function addOne(a) {
+            return a + 1;
+        }
+
+        console.log(multiplyByTwo(1, 2, 3)); //        [2, 4, 6]
+        console.log(addOne(100));          // 101
+
+
+
+        var myarr = [];
+        console.log(myarr = multiplyByTwo(10, 20, 30));  // [20, 40, 60]
+
+
+
+
+        for (var i = 0; i < 3; i++) {
+            myarr[i] = addOne(myarr[i]);
+        }
+        console.log(myarr);
+        //  [21, 41, 61]
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 ALPER ÖZIŞIK - Inputs</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    
+    <script type="text/javascript">
+
+
+        $(function () {
+
+            var heading, k, y, m;
+
+            heading = document.querySelector('h1');
+            k = document.querySelector('#k');
+            m = document.querySelector('#m');
+            y = document.querySelector('#y');
+
+            document.body.addEventListener('change', function () {
+                heading.style.color = 'rgb(' + [k.value, m.value, y.value].join(',') + ')';
+
+                var p = $("#cikti");
+
+               p.text(heading.style.color + "<br>");
+              //  console.log(heading.style.color);
+                //  console.log(k.value);
+            }, false);
+
+        });
+
+    </script>
+</head>
+<body>
+    <p id="cikti"> deger</p>
+    <b>Kırmızı:</b>
+    <input type="range" min="0" max="255"  id="k"  /><br />
+    <b>Yeşil:</b>
+    <input type="range" min="0" max="255"  id="y"  /><br />
+    <b>Mavi:</b>
+    <input type="range" min="0" max="255"  id="m" name="m"  /><br />
+       <input type="submit" />
+    <h1>ALPER ÖZIŞIK   </h1>
+
+</body>
+</html>

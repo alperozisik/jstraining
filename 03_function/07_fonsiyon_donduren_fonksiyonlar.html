@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        function a() {
+            alert('A!');
+            return function b () {
+                alert('B!');
+            };
+        }
+
+        //1 ************************************************
+        //var calis = a();
+        //console.log(calis);
+        //calis();
+
+        //2********************************************************
+        //a()();
+
+        //3************************************************
+        a = a();
+        console.log(a);
+        b = a();
+        console.log(b);
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

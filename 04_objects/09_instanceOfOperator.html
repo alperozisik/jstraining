@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+
+
+        //BURADA HEM NEW İLE HEM DE LİTERAL YOLLA NESNE OLUŞTURMAYI ÖRNEKLİYOR BAŞKA BİR ŞEY YOK
+
+
+
+        function Hero(name) { this.name = name; }
+
+
+        var h2 = new Hero('Michelangelo');
+        console.log(h2.constructor);
+        //Hero(name)
+
+
+        var h3 = new h2.constructor('Rafaello');
+        console.log(h3.name);
+        // "Rafaello"
+
+        if (h3 instanceof Hero) {
+
+        }
+
+
+        //2*********************************************************
+        // object literal notation
+
+        var o = {};
+        console.log(o.constructor);
+        // Object()
+        console.log(typeof o.constructor);
+        //  "function"
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+        //new ile yaratılabilen bir nesnedir
+
+        console.log(new Date());
+        //Wed Dec 25 2013 22:21:12 GMT+0200 (Turkey Standard Time)
+
+        console.log(new Date('2009 11 12'));
+        // Thu Nov 12 2009 00:00:00 GMT+0200 (Turkey Standard Time)
+
+
+        console.log(new Date('1 1 2012'));
+        //  Sun Jan 01 2012 00:00:00 GMT+0200 (Turkey Standard Time)
+
+
+        console.log(new Date('1 mar 2012 5:30'));
+        //  Thu Mar 01 2012 05:30:00 GMT+0200 (Turkey Standard Time)
+
+
+        console.log(new Date(2008, 0, 1, 17, 05, 03, 120));
+        //Tue Jan 01 2008 17:05:03 GMT+0200 (Turkey Standard Time)
+
+
+        console.log(new Date(2008, 0, 1, 17));
+        // Tue Jan 01 2008 17:00:00 GMT+0200 (Turkey Standard Time)
+
+
+
+        console.log(new Date(2016, 1, 28));
+        //Sun Feb 28 2016 00:00:00 GMT+0200 (Turkey Standard Time)
+
+
+
+        console.log(new Date(2016, 1, 29));
+        //Mon Feb 29 2016 00:00:00 GMT+0200 (Turkey Standard Time)
+
+        console.log(new Date(2016, 1, 30));
+        //Tue Mar 01 2016 00:00:00 GMT+0200 (Turkey Standard Time)
+
+
+        console.log(new Date(2012, 11, 31));
+        //Mon Dec 31 2012 00:00:00 GMT+0200 (Turkey Standard Time)
+
+        console.log(new Date(2012, 11, 32));
+        //Tue Jan 01 2013 00:00:00 GMT+0200 (Turkey Standard Time)
+
+
+
+        console.log(new Date(1357027200000));
+        //Tue Jan 01 2013 10:00:00 GMT+0200 (Turkey Standard Time)
+
+
+
+
+
+        //NEW siz de kullanılabilir ancak herhangib bir parametre almaz
+
+        console.log(Date());
+        //Wed Dec 25 2013 22:21:12 GMT+0200 (Turkey Standard Time)
+        console.log(Date(1, 2, 3, "it doesn't matter"));
+        // Wed Dec 25 2013 22:21:12 GMT+0200 (Turkey Standard Time)
+        console.log(typeof Date());
+        //"string"
+        console.log(typeof new Date());
+        //"object"
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

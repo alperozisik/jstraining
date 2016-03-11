@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        (function a() {
+            alert('boo');
+        })();
+
+
+
+
+
+        (
+        function (name) {
+            alert('Hello ' + name + '!');
+        }
+        )('dude')
+
+        /*
+        iSTEMEDEN GLOBAL FONKSİYONLAR YARATMADAN KULLANILABİLECEK İYİ BİR YÖNTEM
+
+        ANCAK EKSİSİ  BİR FONKSİYON BİRDEN FAZLA KULLANILAMAZ - ÇALIŞTIRILAMAZ
+
+        bU ÖZELLİKLER İMMEDIATE FONKSİYONLARI ONE-OFF  VEYA INITIALIZATION İŞLEMLERİ İÇİN İYİ BİR SEÇENEK YAPAR
+
+
+
+        */
+
+
+        /*
+
+           (function () {
+               // ...
+           }());
+
+          // vs.
+
+           (function () {
+               // ...
+           })();
+
+
+
+        BİR DEĞİŞKENE ATARKAN PARANTEZ İÇİNE ALMAYA GEREK YOK  ***********************
+
+        var result = (function () {
+
+
+
+
+               // return birseyler;
+           }());
+
+
+
+              var result = function () {
+                   // something complex with
+                   // temporary local variables
+                   // return something;
+               }();
+
+                   */
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+
+        // 1*************************************************************************************************************
+
+
+        //BURADA toString(), parseInt()  GİBİ HAZIR METOTLARDAN BAHSEDİLİYOR
+
+
+        function myfunc(a, b, c) {
+            return a + b + c;
+        }
+
+        //TOSTRING FONKSİYONUN SOURCE KODUNU GETİRİR
+        console.log(myfunc.toString());
+
+        //     "function myfunc(a, b, c) {
+        //    return a + b + c;
+        //}"
+
+
+
+        //parseInt GİBİ HAZIR METOTLARA toString() İLE BAKILDIĞINDA  [native code] İFADESİ GÖRÜLÜR
+        console.log(parseInt.toString());
+        // "function parseInt() { [native code] }"
+
+
+
+
+
+        // 1*************************************************************************************************************
+
+
+
+
+        // call() İLE apply() İ BİR FONKSİYONU ÇALIŞTIRMAK VE ARGUMANLARINI DİĞERİNE GEÇİRMEK İÇİN KULLANABİLİRİZ
+
+        var some_obj = {
+            name: 'Ninja',
+            say: function (who) {
+                return 'Hey ' + who + ', I am a ' + this.name;
+            }
+        }
+
+        console.log(some_obj.say('Alper'));
+        //"Hey Alper, I am a Ninja"
+
+        var my_obj = { name: 'Scripting guru' };
+
+        console.log(some_obj.say.call(my_obj, 'alper'));
+        //"Hey alper, I am a Scripting guru"
+
+        //BURADA say FONKSİYONUNA my_obj VE ONUN PARAMETRESİ alper GÖNDERİLDİ.
+        //say METODUNDA this DE BU DEĞERLER AKTARILDI KULLANILDI .YANİ NİNJA DEĞİL my_obj den GELEN NAME DEĞERİ KULLANILDI
+
+
+        //some_obj.someMethod.apply(my_obj, ['a', 'b', 'c']);
+        //some_obj.someMethod.call(my_obj, 'a', 'b', 'c');
+
+
+        //apply METODUNUN TEK FARKI PARAMETRELER BİR DİZİ ŞEKLİNDE GÖNDERİLİYOR
+
+        console.log(some_obj.say.apply(my_obj, ['ALPER']));
+        // "Haya ALPER, I am a Scripting guru"
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

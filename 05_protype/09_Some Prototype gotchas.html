@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+        /*     prototype lerle ilgili iki davranış biçimini aklımızda tutmalıyız:
+    •   prototype chain canlıdır ve
+            prototype object in yerini alır
+    •  prototype.constructor   reliable (güvenli )  değildir
+           . */
+
+        function Dog() {
+            this.tail = true;
+        }
+
+
+        var benji = new Dog();
+        var rusty = new Dog();
+
+
+
+        //NESNEYİ OLUŞTURDUKTAN SONRADA ÖZELLİK VEYA METOT EKLEYEBİLİYORUZ
+
+
+        Dog.prototype.say = function () {
+            return 'havv!';
+        }
+
+
+        //YENİ METODU EKLEDİKTEN SONRA HER İKİ YENİ NESNE DE DE GEÇERLİ OLUYOR
+        console.log(benji.say());
+        //   "havv!"
+        console.log(rusty.say());
+        //   "havv!"
+
+
+
+
+        console.log(benji.constructor === Dog);
+        // true
+        console.log(rusty.constructor === Dog);
+        // true
+        console.log(benji.constructor);
+        // function Dog() { }
+
+
+
+
+
+
+        //BURADA ANA NESNENİN BİR ÖZELLİĞİN ELDE EDEMİYORUZ, ANA NESNEYİ GÖRÜYORUZ AMA ONUN ÖZELLİĞİNE ERİŞEMİYORUZ
+        console.log(benji.constructor.prototype.constructor);
+        //function Dog() { }
+        console.dir(typeof benji.constructor.prototype.tail);
+        // "undefined"
+
+
+        //ANCAK PROTOTYPE İLE OLUŞTURULMUŞ BİR METOD VEYA ÖZELLİĞE  ULAŞILABİLİR
+        console.log(typeof benji.constructor.prototype.say);
+        // function
+
+
+
+        //BURADA YENİ BİR NESNE PROTOTYPE A EKLENİYOR, ANCAK DAHA ÖNCE OLUŞTURLAN NESNELER BUNU KULLANAMIYOR
+        Dog.prototype = {
+            paws: 4,
+            hair: true
+        };
+        Dog.prototype.constructor = Dog;
+
+
+        console.log(typeof benji.paws);
+        //"undefined"
+
+        console.log(benji.say());
+        //"havv!"
+        console.log(typeof benji.__proto__.say);
+        // "function"
+        console.log(typeof benji.__proto__.paws);
+        //"undefined"
+
+
+
+
+
+
+
+        //ŞİMDİDEN SONRA OLUŞTURULAN NESNELER GÜNCELLENMİŞ PROTOTYPE IN ÖZELLİKLERİNİ KULLANIRLAR
+        //İLK PROTOTYPE GEÇERLİ OLMAZ NİTEKİM AŞAĞIDA İLK PROTOTYPE DAN GELEN  say() METODU TANIMSIZ OLMUŞTUR
+        var lucy = new Dog();
+
+        //console.log(lucy.say());
+        //TypeError: lucy.say is not a function
+
+
+        console.log(lucy.paws);
+        //4
+
+
+        console.log(typeof lucy.__proto__.say);
+        //"undefined"
+        console.log(typeof lucy.__proto__.paws);
+        //"number"
+
+
+
+
+        //BURADA lucy Dog() fonksiyonu ÇIKACAĞINA OBJECT ÇIKMIŞ Kİ BU DA YANLIŞ.
+        console.dir(lucy.constructor);
+        // function Object() { [native code] }
+        console.dir(benji.constructor);
+        //function Dog() { }
+
+
+        //BU KARIŞIKLIĞI ÖNLEMEK İÇİN CONSTRUCTOR PROPERTİYİ RESETLEYİP DAHA SONRA ÜZERİNE YAZMALI (OVERWRITE)
+
+
+
+
+
+
+
+        //Bunu önlemek için en iyi yöntem yukarıdaki prototype tanımı şöyle yapmak:
+        function Dog() { }
+        Dog.prototype = { paws: 4, hair: true };
+        Dog.prototype.constructor = Dog;
+
+        var uyuz = new Dog();
+
+        console.dir(uyuz.constructor);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

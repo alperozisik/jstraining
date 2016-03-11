@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>OrientationChange Event Example</title>
+</head>
+<body>
+
+
+
+
+    <div id="output"> simple example that outputs the values for alpha, beta, and gamma:</div>
+
+    <script>
+
+
+
+
+        var handler = function (event) {
+            var output = document.getElementById("output");
+            output.innerHTML = "Alpha=" + event.alpha + ", Beta=" + event.beta +
+            ", Gamma=" + event.gamma + "<br>";
+        };
+
+        window.addEventListener("deviceorientation", handler, true);
+
+
+
+    </script>
+
+    <img src="../images/06.png" /><p></p>
+    <img src="../images/07.png" /><p></p>
+    <img src="../images/08.png" /><p></p>
+</body>
+</html>

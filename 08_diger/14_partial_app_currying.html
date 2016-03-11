@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+
+        // test
+        console.log(typeof add(5)); // "function"
+        console.log(add(3)(4)); // 7
+        // create and store a new function
+        var add2000 = add(2000);
+        console.log(add2000);
+        console.log(add2000(10));  // 2010
+
+        /* BURADAKİ ESPİRİ ŞU, FONKSİYON İLK ÇAĞRIOLDIĞINDA TEK PARAMETRE GÖNDERİLİYORSA BU İF İLE KONTROL EDİLİYOR
+
+        VE DEVAMINDA BİR FONKSİYON İFADESİ GÖNDERİLİYOR ANCAK BU ÇALIŞTIRILMAMIŞ BİR FONKSİYON, İKİNCİ ÇALIŞTIRMADA
+        TEKRAR BİR PARAMETRE GÖNDERİLİYOR ESKİSİ İLE TOPLANIYOR... İKİ PARAMETRE GÖNDERDİĞİNDE SORUN YOK, TEK TEK GÖNDERDİĞİNDE DE
+        BU ŞEKİLDE HER BİRİNİ ÇALIŞTIRIOR
+        */
+
+
+
+
+        // a curried add
+        // accepts partial list of arguments
+        function add(x, y) {
+            if (typeof y === "undefined") { // partial
+                return function (y) {
+                    return x + y;
+                };
+            }
+            // full application
+            return x + y;
+        }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

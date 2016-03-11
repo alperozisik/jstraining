@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+
+    <script>
+
+
+        //BURADA BİR TANE GLOBAL DEĞİŞKEN OLUŞTURUP METOTLARI VE ÖZELLİKLERİ ONUN İÇİNDE ÇALIŞTIRMAK MANTIĞI VAR
+        //bU DA SANDBOX FONKSİYONU
+
+        function Sandbox() {
+
+            var args = Array.prototype.slice.call(arguments);  //Put the arguments
+            //of the call to the Sandbox constructor in an array called args.
+
+
+            //BURADA DİZİNİN (PARAMETRELERİN) SON DEĞERİ çıkarılıyor yani sadece fonksiyonsuz argumanlar kalıyor
+            var callback = args.pop(); //The last argument is the callback
+            var requiredmodules = args;  //The remaining arguments are the require
+            // modules
+
+            //For each of the modules in 'requiredmodules', add the module's
+            //methods to 'this'
+
+            //BURADA HER BİR MODÜLE AİT FONKSİYONLAR ELDE EDİLİYOR DAHA SONRA BUNU ÇAĞIRAN PARAMETRE İÇİN İŞLETİLECEK
+            for (i = 0; i < requiredmodules.length; i++) {
+                Sandbox.modules[requiredmodules[i]](this);
+
+                //   console.log(Sandbox.modules[requiredmodules[i]]);
+            }
+
+
+            //'this' now has methods returnNumbers and returnLetters
+
+            //Call the callback.  In the example below, 'this' will be called
+            //MYAPP, which within the callback will have all the methods from
+            //the required modules.
+
+            //BURADA MODÜLLERİN EN SON ELEMANI OLAN FONKSİYONLAR HER BİR MODÜL İÇİN ÇALIŞTIRILIYOR
+            callback(this);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //DAHA SONRA MODULLER EKLENİYOR
+
+        Sandbox.modules = {};
+
+        Sandbox.modules.returnNumbers = function (MYAPP) {
+            MYAPP.return100 = function () { return 100; };
+        };
+
+        Sandbox.modules.returnLetters = function (MYAPP) {
+            MYAPP.returnABC = function () { return "ABC"; };
+        };
+
+
+
+
+
+
+
+        //DAHA SONRA MODULLER ÇAĞRILIYOR BURADA MODUL İSİMLERİYLE  ÇAĞRILAN İSİMLERİN AYNI OLMASINA DİKKAT
+        //AYRICA SON GÖNDERİLEN DE MODÜLÜN ÇALIŞTIRILAN FONKSİYONU
+        new Sandbox('returnNumbers', 'returnLetters', function (MYAPP) {
+
+            console.log(MYAPP.return100());
+            console.log(MYAPP.returnABC());
+        });
+
+        // Sandbox('returnNumbers', 'returnLetters', function (MYAPP) {
+
+        //    console.log(MYAPP.return100());
+        //    console.log(MYAPP.returnABC());
+        //});
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

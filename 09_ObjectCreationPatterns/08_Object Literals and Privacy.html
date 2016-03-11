@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+
+
+        //ÖNCEKİ ÖRNEKLERDE CONSTRUCTOR LÜ NESNELERİN PRİVATE ÖZELLİKLERİNİ İNCELEDİK
+        //ACABA LİTERAL OLARAK TANIMLANAN NESNELERDE DURUM NEDİR
+        //ONLARA DA PRİVATE ELEMANLAR TANIMLAYABİLİR MİYİZ?
+
+
+
+        (function () {
+            // private members
+            var name = "my, oh my";
+            // implement the public part
+            // note -- no `var`
+
+            myobj = {
+                // privileged method
+                getName: function () {
+                    return name;
+                }
+            };
+        }());
+
+
+        console.log(myobj.getName());
+        // "my, oh my"
+
+
+
+        //2 **********************************************************************************************
+
+        //The  same  idea  but  with  slightly  different  implementation  is  given  in  the  following
+        //example:
+        var myobj = function () {
+            // private members
+            var name = "my, oh my";
+            // implement the public part
+            return {
+                getName: function () {
+                    return name;
+                }
+            };
+        }();
+
+        console.log(myobj.getName());
+        // "my, oh my"
+
+
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
