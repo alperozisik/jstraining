@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script>
+    
+    
+        // Property Shorthand
+        var x = 4, y = 5;
+        
+        var obj = { x, y };  // obj = { x: x, y: y };
+        
+        
+        // Computed Property Names
+        let obj = {
+            foo: "bar",
+            [ "baz" + quux() ]: 42
+        };
+
+
+
+        obj = {
+            foo (a, b) {
+                //…
+            },
+            bar (x, y) {
+                //…
+            },
+            *quux (x, y) {
+                //…
+            }
+        };
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

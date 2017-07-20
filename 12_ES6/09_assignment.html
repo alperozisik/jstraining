@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script>
+
+        // Array Matching
+        var list = [ 1, 2, 3 ];
+        var [ a, , b ] = list;
+        console.log(a);
+        console.log(b);
+        [ b, a ] = [ a, b ];
+        console.log(a);
+        console.log(b);
+        
+        // Object Matching, Shorthand Notation
+        var getASTNode = function getASTNode() {return {op: 2, lhs: 4, rhs: 5, x: 5, y: 0};}
+        var { op, lhs, rhs } = getASTNode();
+        console.log(op)
+        
+        
+        
+        // Object Matching, Deep Matching
+        var getASTNode = function getASTNode() {return {op: 2, lhs: {op: 22}, rhs: 5, x: 5, y: 0};}
+        var { op: a, lhs: { op: b }, rhs: c } = getASTNode();
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        
+        
+        // Object And Array Matching, Default Values
+        var obj = { a: 1 };
+        var list = [ 1 ];
+        var { a, b = 2 } = obj;
+        var [ x, y = 2 ] = list;
+        
+        
+        // Parameter Context Matching
+        function f ([ name, val ]) {
+            console.log(name, val);
+        }
+        function g ({ name: n, val: v }) {
+            console.log(n, v);
+        }
+        function h ({ name, val }) {
+            console.log(name, val);
+        }
+        f([ "bar", 42 ]);
+        g({ name: "foo", val:  7 });
+        h({ name: "bar", val: 42 });
+
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script>
+        var list = [];
+
+        for (let i = 1; i <= 5; i++) {
+            let item = {};
+            item.text = 'Item ' + i;
+
+            item.activate = function(ev) {
+                console.log('Item ' + i + ' is activated.');
+            };
+            list.push(item);
+        }
+
+        item[0].activate();
+        item[1].activate();
+        item[2].activate();
+        item[3].activate();
+        item[4].activate();
+
+
+
+        list.length = 0;
+
+        // to achieve the same effect with 'var'
+        // you have to create a different context
+        // using a closure to preserve the value
+        for (var i = 1; i <= 5; i++) {
+            var item = {};
+            item.text = 'Item ' + i;
+
+            (function(i) {
+                item.activate = function(ev) {
+                    console.log('Item ' + i + ' is activated.');
+                };
+            })(i);
+            list.appendChild(item);
+        }
+
+
+        item[0].activate();
+        item[1].activate();
+        item[2].activate();
+        item[3].activate();
+        item[4].activate();
+        
+        
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

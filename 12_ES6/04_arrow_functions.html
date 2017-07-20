@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script>
+        
+        //Array.prototype.map
+        // The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+        
+        var numbers = [1, 5, 10, 15];
+        var doubles = numbers.map(function(x) {
+           return x * 2;
+        });
+        // doubles is now [2, 10, 20, 30]
+        // numbers is still [1, 5, 10, 15]
+        
+        
+        
+        // More expressive closure syntax
+        var evens = [2,4,6,8,10,12];
+    
+        var odds  = evens.map(v => v + 1);
+        var pairs = evens.map(v => ({ even: v, odd: v + 1 }));
+        var nums  = evens.map((v, i) => v + i);
+    
+        
+        nums = []; nums.length = 100; nums.forEach((item, index, array) => {array[index] = index});
+        var fives = [];
+        nums.forEach(v => {
+           if (v % 5 === 0)
+               fives.push(v);
+        })
+        
+        
+        
+        // No binding of this
+        function Person() {
+          // The Person() constructor defines `this` as an instance of itself.
+          this.age = 0;
+        
+          setInterval(function growUp() {
+            // In non-strict mode, the growUp() function defines `this` 
+            // as the global object, which is different from the `this`
+            // defined by the Person() constructor.
+            this.age++;
+          }, 1000);
+        }
+        var p = new Person();
+        
+        // Earlier solution
+        
+        function Person() {
+          var that = this;
+          that.age = 0;
+        
+          setInterval(function growUp() {
+            // The callback refers to the `that` variable of which
+            // the value is the expected object.
+            that.age++;
+          }, 1000);
+        }
+        
+        var p = new Person();
+        
+        
+        function Person(){
+          this.age = 0;
+        
+          setInterval(() => {
+            this.age++; // |this| properly refers to the person object
+          }, 1000);
+        }
+        
+        var p = new Person();
+        
+        
+        
+        // No binding of arguments
+        
+        var arguments = 42;
+        var arr = () => arguments;
+        
+        arr(); // 42
+        
+        function foo() {
+          var f = (i) => arguments[0] + i; // foo's implicit arguments binding
+          return f(2);
+        }
+        
+        foo(1); // 3
+        
+        
+        
+        // Arrow functions used as methods
+        
+        var obj = {
+          i: 10,
+          b: () => console.log(this.i, this),
+          c: function() {
+            console.log(this.i, this);
+          }
+        }
+        obj.b(); // prints undefined, Window {...} (or the global object)
+        obj.c(); // prints 10, Object {...}
+        
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
