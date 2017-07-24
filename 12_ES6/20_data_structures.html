@@ -4,7 +4,7 @@
 <head>
     <title></title>
     <script>
-    
+
         // Set Data-Structure
         var s = new Set();
         s.add("hello").add("goodbye").add("hello");
@@ -12,10 +12,14 @@
         s.has("hello") === true;
         for (let key of s.values()) // insertion order
             console.log(key);
-        
-        
-        
+
+
+
         // Map Data-Structure
+        
+        // The Map object holds key-value pairs.
+        // Any value (both objects and primitive values) may be
+        // used as either a key or a value.
         var m = new Map();
         var s = Symbol();
         m.set("hello", 42);
@@ -24,15 +28,15 @@
         m.size === 2;
         for (let [ key, val ] of m.entries())
             console.log(key + " = " + val);
- 
- 
- 
-            
+
+
+
+
         // Weak-Link Data-Structures
         // Memory-leak-free Object-key’d side-by-side data-structures.
         var isMarked     = new WeakSet();
         var attachedData = new WeakMap();
-        
+
         class Node {
             constructor (id)   { this.id = id;                  }
             mark        ()     { isMarked.add(this);            }
@@ -41,15 +45,15 @@
             set data    (data) { attachedData.set(this, data);  }
             get data    ()     { return attachedData.get(this); }
         }
-        
+
         var foo = new Node("foo");
-        
+
         JSON.stringify(foo) === '{"id":"foo"}';
         foo.mark();
         foo.data = "bar";
         foo.data === "bar";
         JSON.stringify(foo) === '{"id":"foo"}';
-        
+
         isMarked.has(foo)     === true
         attachedData.has(foo) === true
         foo = null  /* remove only reference to foo */

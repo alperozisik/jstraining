@@ -12,8 +12,11 @@
                 return name in receiver ? receiver[name] : `Hello, ${name}`;
             }
         });
-        proxy.foo === "Welcome, foo";
-        proxy.world === "Hello, world";
+        console.log(proxy.foo === "Welcome, foo");
+        console.log(proxy.world === "Hello, world");
+
+        delete target.foo;
+        console.log(proxy.foo === "Welcome, foo");
     </script>
 </head>
 
