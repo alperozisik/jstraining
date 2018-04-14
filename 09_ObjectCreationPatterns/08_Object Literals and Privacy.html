@@ -13,7 +13,7 @@
         //ONLARA DA PRİVATE ELEMANLAR TANIMLAYABİLİR MİYİZ?
 
 
-
+        var myobj;
         (function () {
             // private members
             var name = "my, oh my";
@@ -38,7 +38,7 @@
 
         //The  same  idea  but  with  slightly  different  implementation  is  given  in  the  following
         //example:
-        var myobj = function () {
+        var myobj = (function () {
             // private members
             var name = "my, oh my";
             // implement the public part
@@ -47,7 +47,7 @@
                     return name;
                 }
             };
-        }();
+        })();
 
         console.log(myobj.getName());
         // "my, oh my"

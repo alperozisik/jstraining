@@ -1,4 +1,4 @@
-﻿function Sandbox() {
+function Sandbox() {
     // turning arguments into an array
     var args = Array.prototype.slice.call(arguments), //Gönderilen değerleri diziye çeviriyor
     // the last argument is the callback
@@ -31,7 +31,7 @@
         Sandbox.modules[modules[i]](this);
     }
     // call the callback
-    callback(this);
+    callback && callback(this);
 }
 // any prototype properties as needed
 Sandbox.prototype = {
